@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAKAR — Viva Preparation Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --primary: #7C4DFF; --primary-light: #B388FF; --bg: #0D0D1A;
+    --surface: #1A1A2E; --surface2: #242442; --text: #E8E8F0;
+    --text-muted: #9090AD; --green: #34D399; --blue: #60A5FA;
+    --orange: #F59E0B; --red: #EF4444; --purple: #A78BFA;
+    --teal: #5EEAD4; --border: rgba(124,77,255,0.15);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; font-size:15px; }
+  .container { max-width:880px; margin:0 auto; padding:40px 32px; }
+
+  .cover { text-align:center; padding:60px 20px 50px; border-bottom:1px solid var(--border); margin-bottom:40px; }
+  .cover-badge { display:inline-block; background:linear-gradient(135deg,var(--red),var(--orange)); color:white; padding:6px 20px; border-radius:20px; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:20px; }
+  .cover h1 { font-size:44px; font-weight:900; background:linear-gradient(135deg,#FFF,var(--orange)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:8px; }
+  .cover .subtitle { font-size:18px; color:var(--orange); font-weight:500; }
+  .cover .meta { font-size:13px; color:var(--text-muted); margin-top:16px; }
+
+  .section { margin-bottom:48px; }
+  h2.sec { font-size:24px; font-weight:800; color:white; padding-bottom:10px; border-bottom:3px solid var(--primary); margin-bottom:20px; }
+  h2 .icon { margin-right:10px; }
+
+  .qa { margin-bottom:20px; padding:18px 22px; background:var(--surface); border:1px solid var(--border); border-radius:14px; }
+  .qa .q { font-size:14px; font-weight:700; color:var(--primary-light); margin-bottom:8px; }
+  .qa .q::before { content:"Q: "; color:var(--orange); font-weight:800; }
+  .qa .a { font-size:14px; color:var(--text); line-height:1.8; }
+  .qa .a strong { color:white; }
+
+  table { width:100%; border-collapse:collapse; margin:12px 0 16px; font-size:13px; }
+  thead th { background:var(--surface2); color:var(--primary-light); padding:9px 12px; text-align:left; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.5px; border-bottom:2px solid var(--primary); }
+  tbody td { padding:9px 12px; border-bottom:1px solid rgba(255,255,255,.04); color:var(--text); vertical-align:top; }
+  code { font-family:'JetBrains Mono',monospace; background:var(--surface2); padding:2px 6px; border-radius:4px; font-size:12px; color:var(--purple); }
+
+  .tip { background:rgba(52,211,153,.08); border-left:4px solid var(--green); border-radius:0 12px 12px 0; padding:14px 18px; margin:20px 0; font-size:13px; }
+  .tip strong { color:var(--green); }
+  .warning { background:rgba(245,158,11,.08); border-left:4px solid var(--orange); border-radius:0 12px 12px 0; padding:14px 18px; margin:20px 0; font-size:13px; }
+
+  .ref-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 24px; margin:20px 0; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:2; color:var(--teal); }
+
+  ul { padding-left:20px; margin:8px 0; }
+  li { margin-bottom:4px; font-size:14px; }
+
+  .badge { display:inline-block; padding:3px 10px; border-radius:16px; font-size:11px; font-weight:600; }
+  .b-p { background:rgba(124,77,255,.15); color:var(--primary-light); }
+  .b-g { background:rgba(52,211,153,.15); color:var(--green); }
+  .b-b { background:rgba(96,165,250,.15); color:var(--blue); }
+  .b-o { background:rgba(245,158,11,.15); color:var(--orange); }
+
+  hr { border:none; border-top:1px solid var(--border); margin:36px 0; }
+
+  @media print {
+    body { background:white; color:#111; font-size:11pt; }
+    .container { max-width:100%; padding:20px; }
+    .cover h1 { -webkit-text-fill-color:#111; font-size:30pt; }
+    .qa { background:#f8f8fc; border-color:#ddd; }
+    .qa .q { color:#5B21B6; }
+    thead th { background:#eee; color:#333; border-bottom-color:#999; }
+    tbody td { border-bottom-color:#eee; color:#333; }
+    h2.sec { color:#111; }
+    code { background:#f0f0f5; color:#5B21B6; }
+    .ref-card { background:#f8f8fc; border-color:#ddd; color:#2d6a4f; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="cover">
+  <div class="cover-badge">🎯 Exam Preparation</div>
+  <h1>AAKAR Viva Guide</h1>
+  <div class="subtitle">50+ Expected Questions with Short Answers</div>
+  <div class="meta">Read 30 minutes before your viva. You'll be ready for anything.</div>
+</div>
+
+<!-- ═══════ SECTION 1 ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">🔹</span>Section 1: Project Basics</h2>
+
+<div class="qa">
+  <div class="q">What is the full form of AAKAR?</div>
+  <div class="a"><strong>Autism Assistive Kit for Awareness & Recognition</strong>. "Aakar" (आकार) means "shape/form" in Hindi.</div>
+</div>
+
+<div class="qa">
+  <div class="q">What problem does your project solve?</div>
+  <div class="a">Children with <strong>Autism Spectrum Disorder (ASD)</strong> struggle to recognize and express emotions. Aakar uses <strong>AI-powered emotion detection</strong> combined with <strong>therapeutic games</strong> to help them learn emotions interactively.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Who are the target users?</div>
+  <div class="a">Five roles: <strong>Child</strong> (primary learner), <strong>Teacher</strong> (classroom monitoring), <strong>Therapist</strong> (therapy management), <strong>Parent</strong> (progress tracking), <strong>Admin</strong> (system management).</div>
+</div>
+
+<div class="qa">
+  <div class="q">What is the objective of your project?</div>
+  <div class="a">To develop a <strong>cross-platform assistive application</strong> that detects facial emotions using AI (on-device + cloud), teaches emotions through 15+ gamified activities, and enables collaborative progress tracking across teachers, therapists, and parents.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Is this mobile, web, or desktop?</div>
+  <div class="a"><strong>All three.</strong> Built with Flutter — runs on Android, iOS, Windows, macOS, Linux, and Web from a single codebase.</div>
+</div>
+
+<div class="qa">
+  <div class="q">What makes your project unique?</div>
+  <div class="a">
+    <ul>
+      <li><strong>Dual AI approach</strong> — on-device TFLite (offline) + cloud DeepFace (high accuracy)</li>
+      <li><strong>Live real-time detection</strong> via WebView + face-api.js</li>
+      <li><strong>Multi-stakeholder dashboards</strong> — 4 dedicated dashboards for different roles</li>
+      <li><strong>Privacy-first</strong> — all data stored locally, no cloud dependency</li>
+      <li><strong>Bilingual</strong> — English + Hindi (200+ strings each)</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- ═══════ SECTION 2 ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">🔹</span>Section 2: Technology Stack</h2>
+
+<div class="qa">
+  <div class="q">What technologies did you use?</div>
+  <div class="a">
+    <table>
+      <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
+      <tbody>
+        <tr><td>Frontend</td><td>Flutter (Dart)</td></tr>
+        <tr><td>Backend</td><td>FastAPI (Python)</td></tr>
+        <tr><td>Database</td><td>SQLite (sqflite) + Hive</td></tr>
+        <tr><td>AI/ML</td><td>DeepFace, TensorFlow Lite, face-api.js</td></tr>
+        <tr><td>Face Detection</td><td>OpenCV Haar Cascade, MTCNN</td></tr>
+        <tr><td>State Management</td><td>Provider (ChangeNotifier)</td></tr>
+        <tr><td>Authentication</td><td>bcrypt password hashing</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="q">Why Flutter?</div>
+  <div class="a"><strong>Single codebase for 6 platforms</strong>, hot reload for rapid development, rich widget library for child-friendly UI, and strong community support.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Why FastAPI and not Django/Flask?</div>
+  <div class="a">FastAPI is <strong>async by default</strong>, has <strong>automatic Swagger docs</strong>, and is <strong>3-4x faster</strong> than Flask. Built-in request validation via Pydantic.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Why SQLite instead of Firebase?</div>
+  <div class="a"><strong>No internet required</strong> (works offline), <strong>privacy</strong> (children's data stays on-device), <strong>zero configuration</strong> (no server setup needed).</div>
+</div>
+
+<div class="qa">
+  <div class="q">Why Provider and not BLoC or GetX?</div>
+  <div class="a"><strong>Officially recommended</strong> by the Flutter team, minimal boilerplate, and our project's 8 providers are manageable without BLoC's complexity.</div>
+</div>
+</div>
+
+<!-- ═══════ SECTION 3 ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">🔹</span>Section 3: AI / Machine Learning</h2>
+
+<div class="qa">
+  <div class="q">How does emotion detection work?</div>
+  <div class="a">
+    <table>
+      <thead><tr><th>Mode</th><th>Technology</th><th>Accuracy</th><th>Internet</th></tr></thead>
+      <tbody>
+        <tr><td>On-Device</td><td>TFLite + FER2013</td><td>~65%</td><td>❌ Not needed</td></tr>
+        <tr><td>Cloud</td><td>DeepFace + MTCNN</td><td>~85%</td><td>✅ Required</td></tr>
+        <tr><td>Live</td><td>face-api.js (WebView)</td><td>~70%</td><td>❌ Not needed</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="q">What is DeepFace?</div>
+  <div class="a">An open-source Python library by Facebook Research that wraps multiple deep learning models for <strong>facial analysis</strong> — including emotion, age, gender, and race prediction.</div>
+</div>
+
+<div class="qa">
+  <div class="q">What model/dataset is used?</div>
+  <div class="a"><strong>FER2013</strong> (Facial Expression Recognition 2013) — <strong>35,887 grayscale 48×48 images</strong> across 7 emotions: Happy, Sad, Angry, Fear, Surprise, Neutral, Disgust.</div>
+</div>
+
+<div class="qa">
+  <div class="q">What are the 7 emotions detected?</div>
+  <div class="a">😊 Happy, 😢 Sad, 😠 Angry, 😨 Fear, 😲 Surprise, 😐 Neutral, 🤢 Disgust</div>
+</div>
+
+<div class="qa">
+  <div class="q">What is TFLite?</div>
+  <div class="a"><strong>TensorFlow Lite</strong> — a lightweight version of TensorFlow optimized for <strong>mobile and edge devices</strong>. Runs ML models directly on the phone without a server.</div>
+</div>
+
+<div class="qa">
+  <div class="q">How does live detection work without internet?</div>
+  <div class="a">Flutter reads face-api.js + model weights from local assets → encodes as <strong>base64</strong> → injects into WebView. A <strong>fetch polyfill</strong> intercepts network requests and serves models from memory. <strong>Zero CDN dependency.</strong></div>
+</div>
+
+<div class="qa">
+  <div class="q">What is Haar Cascade?</div>
+  <div class="a">A <strong>classical machine learning algorithm</strong> for object detection. We use OpenCV's pre-trained classifier to <strong>detect and crop faces</strong> from images before passing them to DeepFace.</div>
+</div>
+
+<div class="qa">
+  <div class="q">What preprocessing do you apply?</div>
+  <div class="a">
+    <ul>
+      <li>Image resized to 512×512 px</li>
+      <li>JPEG compressed to ≤500KB</li>
+      <li>Face detected and cropped to <strong>224×224 px</strong> using Haar Cascade</li>
+      <li>Grayscale conversion for the FER2013 model</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="q">What is the model accuracy?</div>
+  <div class="a">FER2013 baseline: <strong>~65-68%</strong> (well-known limitation). DeepFace with MTCNN: <strong>~82-85%</strong>. We apply post-processing corrections (neutral penalty ×0.3, fear/surprise heuristic) to boost real-world performance.</div>
+</div>
+
+<div class="qa">
+  <div class="q">What corrections do you apply?</div>
+  <div class="a">
+    <ul>
+      <li><strong>Neutral penalty (×0.3)</strong> — FER2013 is biased toward "Neutral"</li>
+      <li><strong>Fear ↔ Surprise heuristic</strong> — model confuses these; we apply probabilistic correction</li>
+      <li><strong>Linear normalization</strong> — ensures probabilities sum to 1.0</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- ═══════ SECTION 4 ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">🔹</span>Section 4: Architecture & Design</h2>
+
+<div class="qa">
+  <div class="q">Explain the system architecture.</div>
+  <div class="a">Three-tier architecture:
+    <ul>
+      <li><strong>Presentation Layer</strong> — Flutter UI (pages, widgets)</li>
+      <li><strong>Business Logic Layer</strong> — Providers (state) + Services (API calls, ML)</li>
+      <li><strong>Data Layer</strong> — SQLite + Hive + SharedPreferences</li>
+    </ul>
+    Backend is <strong>optional</strong> — app works fully offline via TFLite.
+  </div>
+</div>
+
+<div class="qa">
+  <div class="q">How does frontend communicate with backend?</div>
+  <div class="a">Via <strong>REST API</strong> over HTTP. <code>POST /analyze-emotion</code> sends image (multipart), receives JSON with emotion probabilities. Uses <code>adb reverse</code> for USB or WiFi IP for wireless.</div>
+</div>
+
+<div class="qa">
+  <div class="q">What design pattern do you use?</div>
+  <div class="a"><strong>MVVM (Model-View-ViewModel)</strong> using Provider: <strong>Model</strong> = <code>lib/models/</code>, <strong>View</strong> = <code>lib/pages/</code>, <strong>ViewModel</strong> = <code>lib/providers/</code>.</div>
+</div>
+
+<div class="qa">
+  <div class="q">How is state managed?</div>
+  <div class="a"><strong>8 ChangeNotifier Providers:</strong> AuthProvider (login), SettingsProvider (theme/API), LanguageProvider (EN↔HI), EmotionHistoryProvider (scans), GameProvider (scores), RoleProvider (role), ChatbotProvider (chat), OnboardingProvider (first-launch).</div>
+</div>
+
+<div class="qa">
+  <div class="q">How many screens does the app have?</div>
+  <div class="a"><strong>50+ screens</strong> — 4 dashboards, 15+ games, detection screens, settings, and sub-pages for each role.</div>
+</div>
+</div>
+
+<!-- ═══════ SECTION 5 ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">🔹</span>Section 5: Database</h2>
+
+<div class="qa">
+  <div class="q">What database do you use and what are the tables?</div>
+  <div class="a"><strong>SQLite</strong> via <code>sqflite</code> with 8 tables:
+    <table>
+      <thead><tr><th>Table</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>users</code></td><td>User accounts (id, name, email, password_hash, role)</td></tr>
+        <tr><td><code>emotion_logs</code></td><td>Emotion scan history per user</td></tr>
+        <tr><td><code>game_scores</code></td><td>Game progress and star ratings</td></tr>
+        <tr><td><code>teacher_student_map</code></td><td>Teacher ↔ Student assignments</td></tr>
+        <tr><td><code>behavior_triggers</code></td><td>Behavior observations by teacher</td></tr>
+        <tr><td><code>session_notes</code></td><td>Teacher session notes</td></tr>
+        <tr><td><code>therapist_messages</code></td><td>Therapist ↔ Parent communication</td></tr>
+        <tr><td><code>therapy_goals</code></td><td>Therapy goal tracking</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="q">How are passwords stored?</div>
+  <div class="a">Using <strong>bcrypt hashing with salt</strong>. Passwords are <strong>never stored in plaintext</strong>. On login, the entered password is hashed and compared against the stored hash.</div>
+</div>
+</div>
+
+<!-- ═══════ SECTION 6 ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">🔹</span>Section 6: Key Features</h2>
+
+<div class="qa">
+  <div class="q">How does Live Emotion Detection work?</div>
+  <div class="a">
+    <ul>
+      <li>Flutter opens a <strong>WebView</strong> with an HTML page</li>
+      <li>Injects <strong>face-api.js + model weights as base64</strong> from local assets</li>
+      <li>A <strong>fetch polyfill</strong> intercepts model requests → serves from memory</li>
+      <li>Camera opens → face detection runs every <strong>400ms</strong></li>
+      <li>Results sent to Flutter via <strong>JavaScript channel</strong> (<code>EmotionChannel.postMessage</code>)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="q">What games are included?</div>
+  <div class="a">
+    <table>
+      <thead><tr><th>Category</th><th>Games</th></tr></thead>
+      <tbody>
+        <tr><td>Emotion</td><td>Face Emotion Guess, Emotion Memory, Scenario Decision</td></tr>
+        <tr><td>Cognitive</td><td>Letter Tracing, Spellings, Flash Cards, Uppercase/Lowercase</td></tr>
+        <tr><td>Puzzle</td><td>Jigsaw, Maze, Puzzle Frame, Block Designs</td></tr>
+        <tr><td>Matching</td><td>Match Pictures, Fluent Matching, Sorting, Patterns</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="q">How does bilingual work?</div>
+  <div class="a">All strings stored in <code>localization/english.dart</code> and <code>hindi.dart</code> (200+ each). A <code>translate()</code> function returns the correct string based on <code>LanguageProvider</code>'s current locale.</div>
+</div>
+</div>
+
+<!-- ═══════ SECTION 7 ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">🔹</span>Section 7: Security & Privacy</h2>
+
+<div class="qa">
+  <div class="q">How do you handle children's data privacy?</div>
+  <div class="a"><strong>All data stored locally</strong> on device (SQLite). Backend is optional and only processes face images temporarily (not stored). Camera permissions requested at <strong>runtime</strong> with graceful denial handling.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Is the API secure?</div>
+  <div class="a">Development uses HTTP locally. For production: <strong>HTTPS with SSL/TLS</strong>, API key authentication, restricted CORS, and rate limiting.</div>
+</div>
+</div>
+
+<!-- ═══════ SECTION 8 ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">🔹</span>Section 8: Challenges & Solutions</h2>
+
+<div class="qa">
+  <div class="q">What challenges did you face?</div>
+  <div class="a">
+    <table>
+      <thead><tr><th>Challenge</th><th>Solution</th></tr></thead>
+      <tbody>
+        <tr><td>FER2013 biased toward "Neutral"</td><td>Applied 0.3× neutral penalty + normalization</td></tr>
+        <tr><td>face-api.js needs CDN (no internet)</td><td>Injected library + models as base64 from Flutter assets</td></tr>
+        <tr><td>DeepFace first-run downloads 500MB</td><td>180s timeout, user-facing loading messages</td></tr>
+        <tr><td>WebView can't access Flutter assets</td><td>Custom fetch polyfill serving from <code>window.__modelData</code></td></tr>
+        <tr><td>WiFi IP changes breaking connection</td><td>Configurable URL in Settings + <code>app_config.dart</code></td></tr>
+        <tr><td>Children need simple UI</td><td>Child-specific widgets: large buttons, emojis, animations</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- ═══════ SECTION 9 ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">🔹</span>Section 9: Future Scope</h2>
+
+<div class="qa">
+  <div class="q">What are your future enhancements?</div>
+  <div class="a">
+    <ul>
+      <li><strong>Cloud Sync</strong> — Firebase/Supabase for cross-device data sync</li>
+      <li><strong>Custom ML Model</strong> — Train on ASD-specific facial expression dataset</li>
+      <li><strong>Speech Emotion</strong> — Analyze voice tone (not just face)</li>
+      <li><strong>Wearable Integration</strong> — Heart rate, skin conductance from smartwatch</li>
+      <li><strong>Multi-language</strong> — Add Marathi, Tamil, Telugu</li>
+      <li><strong>OAuth 2.0</strong> — Google/Apple Sign-In</li>
+      <li><strong>Therapist Video Call</strong> — In-app sessions with emotion overlay</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<hr>
+
+<!-- ═══════ QUICK REF ═══════ -->
+<div class="section">
+<h2 class="sec"><span class="icon">📋</span>Quick Reference Card</h2>
+<div class="ref-card">
+Project:       AAKAR (Autism Assistive Kit for Awareness & Recognition)
+Language:      Dart (Flutter) + Python (Backend)
+Database:      SQLite (sqflite) + Hive
+AI Models:     DeepFace, TFLite, face-api.js
+Dataset:       FER2013 (35,887 images, 7 emotions)
+Architecture:  MVVM with Provider
+Platforms:     Android, iOS, Windows, Web, macOS, Linux
+Backend:       FastAPI + Uvicorn (port 8000)
+Auth:          bcrypt password hashing
+Screens:       50+
+Games:         15+
+Languages:     English, Hindi
+Lines of Code: ~15,000+ (Dart) + ~250 (Python)
+</div>
+</div>
+
+<!-- ═══════ TIPS ═══════ -->
+<div class="tip">
+  <strong>💡 Pro tip:</strong> If the examiner asks something you don't know, relate it back to what you DO know. E.g., if asked about CNN architecture, talk about how DeepFace uses VGG-Face internally and how FER2013 trains the emotion classifier.
+</div>
+
+<div class="warning">
+  <strong>⚡ Key differentiators to emphasize:</strong><br>
+  1. "We built THREE different AI detection modes — on-device, cloud, and live"<br>
+  2. "The app works fully OFFLINE — no internet dependency"<br>
+  3. "We serve AI models to WebView via base64 injection — a custom solution"<br>
+  4. "Five different user roles with dedicated dashboards"<br>
+  5. "Bilingual — English and Hindi with 200+ translated strings"
+</div>
+
+<div style="text-align:center; padding:40px 0 20px; color:var(--text-muted); font-size:13px;">
+  <p><strong>AAKAR — Viva Preparation Guide</strong></p>
+  <p style="margin-top:8px;">
+    <span class="badge b-p">Flutter</span>
+    <span class="badge b-g">FastAPI</span>
+    <span class="badge b-b">TensorFlow</span>
+    <span class="badge b-o">DeepFace</span>
+  </p>
+  <p style="margin-top:16px; font-size:11px;">Press <strong>Ctrl+P</strong> → Save as PDF</p>
+</div>
+
+</div>
+</body>
+</html>
