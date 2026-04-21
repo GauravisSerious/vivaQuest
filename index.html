@@ -3,498 +3,1061 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Analytics - Ultimate Viva Q&A</title>
+    <title>🔥 Advanced AI — Most Important Viva Q&A</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
-        
+
         :root {
-            --bg-color: #0f172a;
-            --text-color: #f8fafc;
-            --accent-primary: #3b82f6;
-            --accent-secondary: #8b5cf6;
-            --accent-tertiary: #ec4899;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-            --hover-bg: #2dd4bf;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --border: #334155;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --red: #ef4444;
+            --orange: #f97316;
+            --yellow: #eab308;
+            --green: #22c55e;
+            --cyan: #06b6d4;
+            --purple: #a855f7;
+            --blue: #3b82f6;
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            overflow-y: scroll;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Fixed the overlapping header by removing position: sticky and reducing height */
+        /* ── HEADER ── */
         header {
             text-align: center;
-            padding: 2.5rem 0 1.5rem 0;
-            background: linear-gradient(135deg, rgba(15,23,42,1) 0%, rgba(30,41,59,1) 100%);
-            border-bottom: 2px solid var(--border-color);
-            position: relative; 
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            padding: 2.8rem 1rem 2rem;
+            background: linear-gradient(180deg, #0a0f1e 0%, #1e293b 100%);
+            border-bottom: 2px solid rgba(239,68,68,0.4);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
         }
 
-        h1 {
+        header h1 {
             font-size: 2.8rem;
-            margin: 0;
-            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--red), var(--orange), var(--yellow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeIn 1s ease-in-out;
-            padding: 0 20px;
+            margin-bottom: 0.5rem;
         }
 
-        .subtitle {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
-            font-weight: 300;
+        header p {
+            color: var(--muted);
+            font-size: 1rem;
+            font-weight: 400;
         }
 
-        .search-container {
-            margin: 1.5rem auto 0 auto;
-            max-width: 600px;
-            position: relative;
-            padding: 0 20px;
+        .header-chips {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
-        .search-bar {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
-            color: var(--text-color);
-            outline: none;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        .chip {
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            border: 1px solid;
         }
 
-        .search-bar:focus {
-            border-color: var(--accent-secondary);
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+        .chip-red { background: rgba(239,68,68,0.15); color: var(--red); border-color: var(--red); }
+        .chip-orange { background: rgba(249,115,22,0.15); color: var(--orange); border-color: var(--orange); }
+        .chip-yellow { background: rgba(234,179,8,0.15); color: var(--yellow); border-color: var(--yellow); }
+        .chip-purple { background: rgba(168,85,247,0.15); color: var(--purple); border-color: var(--purple); }
+        .chip-cyan { background: rgba(6,182,212,0.15); color: var(--cyan); border-color: var(--cyan); }
+        .chip-green { background: rgba(34,197,94,0.15); color: var(--green); border-color: var(--green); }
+
+        /* ── LAYOUT ── */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem 4rem;
         }
 
+        /* ── SECTION TITLE ── */
         .section-title {
-            font-size: 1.6rem;
-            border-bottom: 2px solid var(--accent-primary);
-            padding-bottom: 8px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-top: 3rem;
             margin-bottom: 1.2rem;
-            display: inline-block;
-            font-weight: 800;
-            color: #e2e8f0;
+            padding: 10px 18px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .qa-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+        .s1 { background: rgba(239,68,68,0.1); border-left: 4px solid var(--red); color: #fca5a5; }
+        .s2 { background: rgba(249,115,22,0.1); border-left: 4px solid var(--orange); color: #fdba74; }
+        .s3 { background: rgba(168,85,247,0.1); border-left: 4px solid var(--purple); color: #d8b4fe; }
+        .s4 { background: rgba(6,182,212,0.1); border-left: 4px solid var(--cyan); color: #67e8f9; }
+        .s5 { background: rgba(34,197,94,0.1); border-left: 4px solid var(--green); color: #86efac; }
+        .s6 { background: rgba(234,179,8,0.1); border-left: 4px solid var(--yellow); color: #fde047; }
+        .sp { background: rgba(59,130,246,0.1); border-left: 4px solid var(--blue); color: #93c5fd; }
+
+        /* ── ACCORDION ── */
+        .qa-container { display: flex; flex-direction: column; gap: 0.9rem; }
 
         .accordion {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
         }
 
         .accordion:hover {
-            border-color: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            border-color: rgba(239,68,68,0.5);
         }
 
         .accordion-header {
-            padding: 1.2rem 1.5rem;
+            padding: 1.1rem 1.4rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             user-select: none;
             color: #f1f5f9;
+            gap: 1rem;
         }
 
-        .accordion-header i {
-            transition: transform 0.3s ease;
-            color: var(--accent-primary);
+        .q-text { flex: 1; }
+
+        .icon {
             font-style: normal;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             line-height: 1;
-            margin-left: 15px;
             flex-shrink: 0;
+            transition: transform 0.3s;
+            color: var(--orange);
+            margin-top: 2px;
         }
 
-        .accordion.active .accordion-header i {
-            transform: rotate(45deg);
-            color: var(--hover-bg);
-        }
-        
-        .accordion.active .accordion-header {
-            color: var(--hover-bg);
-            background-color: rgba(30, 41, 59, 1);
-        }
+        .accordion.open .icon { transform: rotate(45deg); color: var(--yellow); }
+        .accordion.open .accordion-header { color: var(--yellow); border-bottom: 1px solid var(--border); }
 
         .accordion-content {
-            padding: 0 1.5rem;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-            background-color: rgba(15, 23, 42, 0.4);
-            color: #94a3b8;
-        }
-
-        .accordion.active .accordion-content {
-            padding: 1rem 1.5rem 1.5rem 1.5rem;
-            border-top: 1px solid var(--border-color);
+            transition: max-height 0.35s ease;
+            background: rgba(15,23,42,0.5);
             color: #cbd5e1;
+            padding: 0 1.4rem;
         }
 
-        .accordion-content ul, .accordion-content ol {
-            margin-top: 0.8rem;
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-        }
+        .accordion.open .accordion-content { padding: 1.2rem 1.4rem 1.5rem; }
 
-        .accordion-content li {
-            margin-bottom: 0.6rem;
+        /* ── INNER CONTENT STYLES ── */
+        .accordion-content h4 {
+            color: #f8fafc;
+            font-size: 1rem;
+            margin: 12px 0 6px;
         }
+        .accordion-content h4:first-child { margin-top: 0; }
+        .accordion-content p { margin-bottom: 10px; }
+        .accordion-content ul, .accordion-content ol { padding-left: 1.4rem; margin-bottom: 10px; }
+        .accordion-content li { margin-bottom: 6px; }
 
-        .highlight {
-            color: var(--hover-bg);
-            font-weight: 600;
-        }
+        .hl  { color: #34d399; font-weight: 600; }
+        .hl2 { color: #fbbf24; font-weight: 600; }
+        .hl3 { color: #f87171; font-weight: 600; }
+        .hl4 { color: #a78bfa; font-weight: 600; }
 
-        .pract-tag {
-            background-color: var(--border-color);
-            color: #e2e8f0;
-            padding: 0.2rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            margin-right: 10px;
-            font-weight: 800;
-        }
-
-        .important-badge {
-            background: linear-gradient(45deg, #ef4444, #f97316);
-            padding: 0.2rem 0.5rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            margin-left: 10px;
-            font-weight: 800;
-            color: white;
-            letter-spacing: 1px;
-            box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
-            text-transform: uppercase;
+        /* ── BADGES ── */
+        .badge {
             display: inline-block;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-right: 6px;
             vertical-align: middle;
+            white-space: nowrap;
+        }
+        .bm  { background: var(--red);    color: white; box-shadow: 0 0 8px rgba(239,68,68,0.4); }
+        .bh  { background: linear-gradient(90deg,#f97316,#eab308); color: #0f172a; }
+        .bp  { background: var(--border); color: #e2e8f0; }
+        .bbl { background: rgba(59,130,246,0.3); color: #93c5fd; border: 1px solid var(--blue); }
+
+        /* ── TABLE ── */
+        table { width: 100%; border-collapse: collapse; margin-bottom: 12px; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.93rem; }
+        th { font-weight: 800; color: #f8fafc; background: rgba(239,68,68,0.15); }
+        tr:last-child td { border-bottom: none; }
+
+        /* ── DIAGRAM ── */
+        .diagram {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: rgba(0,0,0,0.25);
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px dashed var(--border);
+            margin-bottom: 12px;
+        }
+        .dbox {
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-align: center;
+            flex: 1;
+            min-width: 90px;
+        }
+        .darr { color: var(--yellow); font-size: 1.3rem; font-weight: bold; }
+
+        /* ── CODE ── */
+        code {
+            background: rgba(0,0,0,0.45);
+            color: #7dd3fc;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.88rem;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ── FORMULA BOX ── */
+        .formula {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-family: monospace;
+            color: #7dd3fc;
+            font-size: 0.92rem;
+            margin-bottom: 12px;
+            overflow-x: auto;
         }
-
-        .accordion {
-            animation: fadeIn 0.4s ease-out forwards;
-            opacity: 0;
-        }
-
     </style>
 </head>
 <body>
 
 <header>
-    <div class="container" style="padding: 0;">
-        <h1>📊 Data & Social Media Analytics</h1>
-        <div class="subtitle">Complete Practicals + Theory Viva Guide</div>
-        <div class="search-container">
-            <input type="text" class="search-bar" id="searchInput" placeholder="Search by topic, keyword, or Practical No. (e.g. Pract 4)...">
-        </div>
+    <h1>🤖 Advanced AI — Most Important Viva Q&A</h1>
+    <p>Complete Unit-wise + Practical Questions with Detailed Answers for External Examination</p>
+    <div class="header-chips">
+        <span class="chip chip-red">Unit 1: Generative Models</span>
+        <span class="chip chip-orange">Unit 2: GANs 🔥</span>
+        <span class="chip chip-purple">Unit 3: VAE</span>
+        <span class="chip chip-cyan">Unit 4: Transfer Learning</span>
+        <span class="chip chip-green">Unit 5: Ensemble</span>
+        <span class="chip chip-yellow">Unit 6: AR/VR/Metaverse</span>
     </div>
 </header>
 
-<div class="container" id="contentContainer">
+<div class="container">
 
-    <div class="section-title">Practicals 1 & 2: Platforms, Tools & Data Collection</div>
-    <div class="qa-container">
-        
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 1</span> Q1: What are specific Engagement Metrics observed at the Page, Post, and Member levels? <span class="important-badge">HOT</span></div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <ul>
-                    <li><span class="highlight">Page-Level:</span> Total Followers, Overall Reach, Follower Growth Rate, Total Mentions. Measures brand health.</li>
-                    <li><span class="highlight">Post-Level:</span> Likes, Comments, Shares, Retweets, Video Views, Click-Through Rate (CTR). Measures content success.</li>
-                    <li><span class="highlight">Member-Level:</span> User Demographics (Age, Location), Top Fans, Influencer interactions. Measures audience composition.</li>
-                </ul>
-            </div>
+<!-- ═══════════════════════════════════════════════ -->
+<!--  UNIT 1: Generative & Probabilistic Models     -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title s1">✅ Unit 1 — Generative & Probabilistic Models</div>
+<div class="qa-container">
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bm">10 Marks</span> Explain Generative Models and their importance in AI.</div>
+            <i class="icon">+</i>
         </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 1</span> Q2: How do Facebook Insights and Google Analytics differ when dealing with Social Media Analytics?</div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p><b>Facebook Insights</b> provides native, in-platform data on your specific FB page (demographics of fans, reach per post, native engagement).<br><br>
-                <b>Google Analytics</b> tracks how much of your website's traffic specifically <i>orginated</i> from your social media platforms (referral traffic). It tracks if a user clicked a Twitter link and then actually bought a product (Conversion Tracking).</p>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 2</span> Q3: In Data Collection, what is the clear difference between Scraping, Crawling, and APIs? <span class="important-badge">V.IMP</span></div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <ul>
-                    <li><b>Crawling:</b> Automated bots systematically navigating website hyperlinks to map out pages (like Google Search).</li>
-                    <li><b>Scraping:</b> A programmatic method (using Python's BeautifulSoup or Selenium) to extract visible HTML text from a webpage structure. Prone to breaking when UI changes.</li>
-                    <li><b>API (Application Programming Interface):</b> The official, platform-sanctioned way to request data. APIs return clean, structured data (typically in <span class="highlight">JSON</span> format) without needing to parse messy HTML. Example: Twitter Developer API.</li>
-                </ul>
-            </div>
+        <div class="accordion-content">
+            <p><span class="hl">Definition:</span> Generative Models learn the underlying probability distribution P(X) of training data and can produce brand-new, realistic data samples that statistically resemble the original training distribution.</p>
+            <h4>Importance in AI:</h4>
+            <ul>
+                <li><span class="hl">Data Augmentation:</span> Generate synthetic labeled samples to expand small datasets — critical in medical imaging where real data is scarce.</li>
+                <li><span class="hl">Image / Video Synthesis:</span> Create photorealistic content — faces, art, game assets, deepfakes.</li>
+                <li><span class="hl">Drug Discovery:</span> Generate novel molecular structures with desired chemical properties, cutting pharma R&D time dramatically.</li>
+                <li><span class="hl">Anomaly Detection:</span> Learn the "normal" data distribution; anything with low likelihood is flagged as an anomaly.</li>
+                <li><span class="hl">Representation Learning:</span> Learn meaningful compressed representations of data (VAE latent space).</li>
+                <li><span class="hl">Density Estimation:</span> Understanding data distribution is fundamental to probabilistic reasoning and Bayesian inference.</li>
+            </ul>
         </div>
     </div>
 
-    <div class="section-title">Practicals 3 & 4: Cleaning, Storage, EDA & Visualization</div>
-    <div class="qa-container">
-        
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 3</span> Q4: Why is NoSQL (MongoDB) heavily utilized for Social Media Data instead of traditional SQL?</div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>Because social media data is vastly <span class="highlight">unstructured or semi-structured</span>. A single tweet might contain text, 3 images, 5 hashtags, and location data, while another might only contain text. SQL requires rigid tables, while <b>MongoDB (NoSQL) utilizes schema-less BSON document storage</b>, making it perfectly suited for highly variable, nested social media data.</p>
-            </div>
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Difference between Generative and Discriminative Models.</div>
+            <i class="icon">+</i>
         </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 3</span> Q5: What are the primary preprocessing steps in text data cleaning using Python? <span class="important-badge">HOT</span></div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>Using libraries like `NLTK` or `spaCy`, the pipeline usually involves:</p>
-                <ol>
-                    <li><b>Tokenization:</b> Splitting massive text arrays into isolated words.</li>
-                    <li><b>Lowercasing:</b> Ensuring uniformity (so "Hello" = "hello").</li>
-                    <li><b>Stop-Word Removal:</b> Deleting low-value structural words ("the", "is", "at").</li>
-                    <li><b>Noise Removal:</b> Using Regular Expressions (Regex) to delete URLs, @mentions, and HTML tags.</li>
-                    <li><b>Stemming/Lemmatization:</b> Converting verbs/plurals to their root form ("jumping" -> "jump").</li>
-                </ol>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 4</span> Q6: What is the goal of EDA (Exploratory Data Analysis) in Social Media?</div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>EDA is the initial, non-predictive stage of analysis. Its goal is to uncover raw patterns, spot anomalies, and check data assumptions. Forms of visualization in EDA include:</p>
-                <ul>
-                    <li><span class="highlight">Word Clouds:</span> Visually showing the most prominent words in a dataset.</li>
-                    <li><span class="highlight">Bar Charts/Histograms:</span> For viewing sentiment distributions (e.g. 600 positive tweets vs 200 negative).</li>
-                    <li><span class="highlight">Time-Series Line Graphs:</span> To visualize hashtag trending volume over a month.</li>
-                </ul>
-            </div>
+        <div class="accordion-content">
+            <table>
+                <tr><th>Feature</th><th>Generative Model</th><th>Discriminative Model</th></tr>
+                <tr><td><b>Goal</b></td><td>Learn P(X) — generate new data</td><td>Learn P(Y|X) — classify given data</td></tr>
+                <tr><td><b>Can Generate?</b></td><td>✅ Yes — creates new samples</td><td>❌ No — only classifies</td></tr>
+                <tr><td><b>Models P(X,Y) or P(X)?</b></td><td>Yes — joint / marginal distribution</td><td>Only conditional P(Y|X)</td></tr>
+                <tr><td><b>Examples</b></td><td>GAN, VAE, HMM, GMM, Naive Bayes</td><td>SVM, Logistic Regression, CNN (classifier)</td></tr>
+                <tr><td><b>Use Case</b></td><td>Image synthesis, text generation, density estimation</td><td>Spam detection, object recognition</td></tr>
+                <tr><td><b>Training Data Needed</b></td><td>Usually more — must learn full distribution</td><td>Less — only needs decision boundary</td></tr>
+            </table>
         </div>
     </div>
 
-    <div class="section-title">Practicals 5 & 6: Content & Structure Models</div>
-    <div class="qa-container">
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 5</span> Q7: Explain Sentiment/Opinion Analysis and the tools used. <span class="important-badge">HOT</span></div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p><b>Sentiment Analysis</b> falls under <span class="highlight">Content-Based Analysis</span>. It utilizes NLP to classify user text (reviews/comments) as Positive, Negative, or Neutral.</p>
-                <ul>
-                    <li><b>Tools used:</b> VADER (Valence Aware Dictionary and sEntiment Reasoner) works excellently for social media as it understands emojis, slang, and capitalization (e.g., "GREAT!"). Advanced models use BERT.</li>
-                    <li><b>Business Application:</b> Automatically monitoring whether an audience hates or loves a new product launch.</li>
-                </ul>
-            </div>
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain Gaussian Mixture Model (GMM) with working.</div>
+            <i class="icon">+</i>
         </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 5</span> Q8: What is Topic Modeling in Content Analysis?</div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>Topic Modeling is an unsupervised Machine Learning model that scans massive document sets to discover "hidden themes". If you feed it 50,000 tweets about Apple, it might cluster phrases like "Battery, Drain, Fast" into Topic 1, and "Camera, Retina, Pixel" into Topic 2. <br><br>
-                The most algorithm used for this is <span class="highlight">Latent Dirichlet Allocation (LDA)</span>.</p>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 6</span> Q9: Define Centrality (Degree, Betweenness, Closeness) in Structure-Based Analytics. <span class="important-badge">V.IMP</span></div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>Structure-based models view social media as a graph of Nodes (Users) and Edges (Relationships/Interactions).</p>
-                <ul>
-                    <li><b>Degree Centrality:</b> Raw number of connections. High degree = Influencer/Popular account.</li>
-                    <li><b>Betweenness Centrality:</b> A user who acts as a bridge between two completely unrelated communities (e.g., bridging Gamers and Crypto enthusiasts). They act as Information Brokers.</li>
-                    <li><b>Closeness Centrality:</b> How close a user is to everyone else on average. High closeness = Ability to spread a viral message the fastest.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 6</span> Q10: What is Community Detection in Network Analytics?</div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>It's the algorithmic process of parsing a massive social graph to find dense, isolated clusters of users that interact with each other far more frequently than the rest of the network (e.g., separating rival political camps or finding a niche fan-base). <br>Common algorithms used are the <span class="highlight">Louvain Method</span> and <span class="highlight">Girvan-Newman</span>.</p>
-            </div>
+        <div class="accordion-content">
+            <p><span class="hl">GMM</span> assumes that all data points are generated from a <span class="hl">mixture of K Gaussian (Normal) distributions</span>, each characterized by its own mean (μ), covariance (σ²), and mixing weight (π).</p>
+            <div class="formula">P(x) = Σ πₖ · N(x | μₖ, σₖ²)  for k = 1 to K</div>
+            <h4>How GMM Works — EM Algorithm:</h4>
+            <ol>
+                <li><span class="hl">Initialize:</span> Randomly assign K Gaussian parameters (μ, σ, π weights).</li>
+                <li><span class="hl">E-Step (Expectation):</span> For each data point, calculate the probability (responsibility) that it belongs to each Gaussian cluster. This is a <b>soft probabilistic assignment</b>.</li>
+                <li><span class="hl">M-Step (Maximization):</span> Update μ, σ, and π to maximize the total log-likelihood given the current soft assignments.</li>
+                <li>Repeat E and M steps until convergence (log-likelihood stops improving).</li>
+            </ol>
+            <h4>GMM vs K-Means:</h4>
+            <table>
+                <tr><th>Feature</th><th>K-Means</th><th>GMM</th></tr>
+                <tr><td>Assignment</td><td>Hard (either in or out)</td><td>Soft (probabilistic percentage)</td></tr>
+                <tr><td>Cluster Shape</td><td>Spherical only</td><td>Elliptical (any shape)</td></tr>
+                <tr><td>Output</td><td>Cluster labels</td><td>Probability of belonging to each cluster</td></tr>
+                <tr><td>Nature</td><td>Deterministic</td><td>Probabilistic</td></tr>
+            </table>
         </div>
     </div>
 
-    <div class="section-title">Practicals 7-10: Dashboards, Promotion, & Reviews</div>
-    <div class="qa-container">
-        
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 7</span> Q11: How do you build a Real-Time Social Media Dashboard?</div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>Unlike batch processing, real-time analytics require a streaming architecture. This involves connecting to the Twitter/X Stream API, funneling incoming JSON tweets into a message broker like <span class="highlight">Apache Kafka</span>, and utilizing Python dashboarding frameworks like <span class="highlight">Dash (Plotly)</span> or <span class="highlight">Streamlit</span> to instantly update sentiment charts or keyword counters.</p>
-            </div>
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain Hidden Markov Model (HMM) with example.</div>
+            <i class="icon">+</i>
         </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 8</span> Q12: How is A/B Testing utilized in Creative Business Promotion? <span class="important-badge">HOT</span></div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>A/B testing involves running two almost identical social media ads (Content A and Content B) where only <span class="highlight">one highly specific variable</span> is changed. For instance, comparing the exact same ad text but using a red button vs a blue button, or a video vs an image. By using analytics to see which yields a higher CTR, the business optimizes its ad budget.</p>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 9</span> Q13: Key metrics to track while analyzing Competitor Activities?</div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>To analyze a competitor, an analyst will track:</p>
-                <ul>
-                    <li><span class="highlight">Share of Voice (SOV):</span> Finding out what percentage of total industry conversations online are about the competitor vs your brand.</li>
-                    <li><span class="highlight">Engagement Gap:</span> What type of competitor posts get massive engagement?</li>
-                    <li><span class="highlight">Competitor Comment Sentiment:</span> Running NLP on the competitor's user comments to identify features users complain about, thereby finding a gap your business can fill.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Pract 10</span> Q14: How does Text Analytics improve existing products from Customer Reviews?</div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <p>Analyzing customer reviews relies heavily on <span class="highlight">Aspect-Based Sentiment Analysis (ABSA)</span>. Instead of just saying a review is "Negative", ABSA identifies exactly *what* aspect is negative. <br><br>
-                For example, in the review "The food was amazing, but the delivery took two hours," ABSA tags [Food -> Positive] and [Logistics -> Negative]. This gives developers explicit data on what exact product service needs improving.</p>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-header">
-                <div><span class="pract-tag">Theory</span> Q15: Types of Recommendation Systems (Social Info Filtering)</div>
-                <i>+</i>
-            </div>
-            <div class="accordion-content">
-                <ul>
-                    <li><b>Content-Based Filtering:</b> Recommends specific posts/products purely based on the attributes/tags of things the user liked in the past.</li>
-                    <li><b>Collaborative Filtering:</b> Based on peer behavior. "Users who are similar to you and liked this product, also liked..."</li>
-                    <li><b>Hybrid Filtering:</b> Combines both text/attribute analysis and user behavior analysis to overcome the <span class="highlight">Cold Start</span> problem.</li>
-                </ul>
-            </div>
+        <div class="accordion-content">
+            <p><span class="hl">HMM</span> is a sequential probabilistic model where the system is assumed to be a Markov process with <span class="hl">hidden (unobservable) states</span> that produce observable emissions/outputs.</p>
+            <h4>Key Components:</h4>
+            <ul>
+                <li><span class="hl">Hidden States (S):</span> Unobservable states. E.g., actual Weather = {Sunny, Rainy}.</li>
+                <li><span class="hl">Observations (O):</span> Observable outputs. E.g., Person's activity = {Umbrella, No Umbrella}.</li>
+                <li><span class="hl">Transition Probability (A):</span> P(next state | current state). E.g., P(Rainy | Sunny) = 0.3.</li>
+                <li><span class="hl">Emission Probability (B):</span> P(observation | hidden state). E.g., P(Umbrella | Rainy) = 0.9.</li>
+                <li><span class="hl">Initial State Distribution (π):</span> Probability of starting in each state.</li>
+            </ul>
+            <h4>Markov Property:</h4>
+            <p>"The future state depends <b>only</b> on the current state, not the full history." This memoryless property makes HMMs computationally tractable.</p>
+            <h4>HMM vs Markov Chain:</h4>
+            <p>In a Markov Chain, states are directly observable. In HMM, states are <span class="hl3">hidden</span> — you can only see the emissions they generate, not the states themselves.</p>
+            <h4>Applications:</h4>
+            <ul>
+                <li>Speech Recognition (phoneme/word identification)</li>
+                <li>Part-of-Speech Tagging in NLP</li>
+                <li>Gesture Recognition</li>
+                <li>Bioinformatics (DNA gene sequence analysis)</li>
+            </ul>
         </div>
     </div>
-    
-    <br><br>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain Bayesian Networks and their applications.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p><span class="hl">Bayesian Network</span> is a Probabilistic Graphical Model represented as a <b>Directed Acyclic Graph (DAG)</b> where:</p>
+            <ul>
+                <li><b>Nodes</b> = Random variables (e.g., Disease, Symptom, TestResult).</li>
+                <li><b>Directed Edges</b> = Conditional dependencies between variables.</li>
+                <li>Each node stores a <span class="hl">Conditional Probability Table (CPT)</span> — P(node | parent nodes).</li>
+            </ul>
+            <h4>Conditional Probability:</h4>
+            <p>P(A|B) = Probability of A occurring given that B has already happened. Bayesian Networks use Bayes' Theorem: <code>P(A|B) = P(B|A) × P(A) / P(B)</code></p>
+            <h4>Bayesian Network vs HMM:</h4>
+            <p>HMM is a <i>sequential temporal</i> model (time series). Bayesian Network is more general — models complex non-sequential causal dependency webs between multiple variables.</p>
+            <h4>Applications:</h4>
+            <ul>
+                <li>Medical Diagnosis: P(Disease | Symptoms, Tests)</li>
+                <li>Spam Filtering: P(Spam | Word frequencies)</li>
+                <li>Fault Diagnosis in industrial systems</li>
+                <li>Risk Assessment in finance & insurance</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text">What are Probabilistic Graphical Models (PGMs)?</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p><span class="hl">Probabilistic Graphical Models (PGMs)</span> are a powerful framework that uses graph structures to encode complex joint probability distributions over many random variables. They represent the conditional independence structure among variables compactly.</p>
+            <h4>Two Main Families:</h4>
+            <ul>
+                <li><span class="hl">Directed Graphical Models (Bayesian Networks):</span> Use directed edges (arrows) to represent causal relationships. Each node is conditionally independent of its non-descendants given its parents.</li>
+                <li><span class="hl">Undirected Graphical Models (Markov Random Fields):</span> Use undirected edges to represent symmetric relationships.</li>
+            </ul>
+            <h4>Key Advantage:</h4>
+            <p>PGMs decompose a huge joint distribution P(X₁, X₂, ..., Xₙ) into smaller, manageable local conditional distributions — making inference and learning computationally feasible even for hundreds of variables.</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text">Explain Markov Random Fields (MRF).</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p><span class="hl">Markov Random Field (MRF)</span>, also called an Undirected Graphical Model, represents the joint probability distribution of variables using an <b>undirected graph</b>. Variables connected by edges are directly dependent; disconnected variables are conditionally independent given their neighbors.</p>
+            <h4>Key Concept — Clique Potentials:</h4>
+            <p>Instead of conditional probability tables, MRFs use <span class="hl">potential functions (ψ)</span> defined over cliques (fully connected subgraphs). The joint distribution is proportional to the product of all clique potentials.</p>
+            <div class="formula">P(X) = (1/Z) × ∏ ψ_c(X_c)  — Z is the normalizing partition function</div>
+            <h4>MRF vs Bayesian Network:</h4>
+            <table>
+                <tr><th>Feature</th><th>Bayesian Network</th><th>MRF</th></tr>
+                <tr><td>Graph Type</td><td>Directed Acyclic (DAG)</td><td>Undirected</td></tr>
+                <tr><td>Relationships</td><td>Causal (parent → child)</td><td>Symmetric associations</td></tr>
+                <tr><td>Parameters</td><td>Conditional Probability Tables</td><td>Potential / Factor functions</td></tr>
+            </table>
+            <h4>Applications:</h4>
+            <p>Image segmentation (pixels form an MRF where each pixel depends on its neighbors), texture analysis, stereo vision, spatial data modeling.</p>
+        </div>
+    </div>
 </div>
 
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  UNIT 2: GAN                                   -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title s2">✅ Unit 2 — GAN (Most Important Unit 🔥)</div>
+<div class="qa-container">
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain GAN Architecture — Generator vs Discriminator.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p><span class="hl">GAN (Generative Adversarial Network)</span> consists of two neural networks trained simultaneously in adversarial competition:</p>
+            <div class="diagram">
+                <div class="dbox" style="background:#1d4ed8">Random Noise z<br><small>Input vector</small></div>
+                <div class="darr">➔</div>
+                <div class="dbox" style="background:#15803d">Generator G<br><small>Creates fake data</small></div>
+                <div class="darr">➔ Fake Data ➔</div>
+                <div class="dbox" style="background:#7c3aed">Discriminator D<br><small>Real or Fake?</small></div>
+                <div class="darr">⟵ Loss Feedback ⟵</div>
+            </div>
+            <ul>
+                <li><span class="hl">Generator G:</span> Takes a random noise vector z as input and maps it to a synthetic data sample (e.g., a fake image). Its goal: fool D into classifying its outputs as real.</li>
+                <li><span class="hl">Discriminator D:</span> Takes either real training data or G's fake output and outputs a probability score (0 = Fake, 1 = Real). Its goal: correctly identify real vs fake.</li>
+                <li><span class="hl">Adversarial Game:</span> As D improves at detecting fakes, G is forced to improve its generation quality. They push each other until G's outputs are indistinguishable from real data.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Working of GAN — Loss Function & Convergence.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p>GAN training uses a <span class="hl">Minimax (Zero-Sum) Loss Function</span>:</p>
+            <div class="formula">min_G max_D  V(D,G) = E[log D(x)] + E[log(1 − D(G(z)))]</div>
+            <ul>
+                <li><span class="hl">D maximizes:</span> <code>log D(x)</code> → correctly classify real samples as Real (D(x) → 1).</li>
+                <li><span class="hl">D maximizes:</span> <code>log(1 − D(G(z)))</code> → correctly classify fake samples as Fake (D(G(z)) → 0).</li>
+                <li><span class="hl">G minimizes:</span> <code>log(1 − D(G(z)))</code> i.e., maximize D(G(z)) → make D believe its fakes are real.</li>
+            </ul>
+            <h4>Training Steps (per iteration):</h4>
+            <ol>
+                <li>Sample real batch x from training data.</li>
+                <li>Sample noise z and generate fake batch G(z).</li>
+                <li>Update D weights to maximize its discrimination ability.</li>
+                <li>Update G weights to minimize D's ability to detect its fakes.</li>
+            </ol>
+            <h4>Convergence (Nash Equilibrium):</h4>
+            <p>Ideal GAN converges when <span class="hl">D(G(z)) = 0.5</span> for all inputs — D can no longer distinguish real from fake, equivalent to random guessing.</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Challenges in GAN Training — Mode Collapse & Instability.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl3">Mode Collapse:</span> G finds a narrow set of outputs that reliably fool D and keeps producing only those — completely losing output diversity. E.g., G trained on MNIST only generates "8"s. G has collapsed to a single mode of the data distribution.</li>
+                <li><span class="hl3">Training Instability:</span> D and G must stay roughly balanced. If D becomes too strong too fast, G's gradient signal vanishes (nothing to learn from). If G dominates, D cannot provide useful corrective loss.</li>
+                <li><span class="hl3">Vanishing Gradient:</span> When D confidently rejects all fake samples (D(G(z)) ≈ 0), <code>log(1-D(G(z)))</code> saturates — gradient reaching G becomes nearly zero.</li>
+                <li><span class="hl3">Non-convergence:</span> Training oscillates without ever reaching Nash Equilibrium — G and D keep "chasing" each other.</li>
+            </ul>
+            <h4>Solutions:</h4>
+            <ul>
+                <li><span class="hl">Wasserstein GAN (WGAN):</span> Uses Earth Mover Distance instead of JS Divergence — provides stable, non-vanishing gradients.</li>
+                <li><span class="hl">Mini-batch Discrimination:</span> D evaluates diversity across a mini-batch — penalizes mode collapse.</li>
+                <li><span class="hl">Label Smoothing:</span> Use 0.9 instead of 1.0 for real labels — prevents D from becoming overconfident.</li>
+                <li><span class="hl">Feature Matching:</span> Train G to match statistics of intermediate D features, not just fool the final output.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain DCGAN Architecture and Improvements over vanilla GAN.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p><span class="hl">DCGAN (Deep Convolutional GAN)</span> replaces all fully-connected layers with convolutional layers, making it dramatically more powerful for image generation.</p>
+            <h4>Key Architectural Changes:</h4>
+            <ul>
+                <li><span class="hl">Convolutional Discriminator:</span> Strided Conv layers downsample the image — the network learns its own spatial downsampling (no max pooling).</li>
+                <li><span class="hl">Transposed Convolution Generator:</span> Fractionally-strided Conv (Deconv) layers progressively upsample noise into a full-resolution image.</li>
+                <li><span class="hl">Batch Normalization:</span> Applied after every layer except D's input and G's output — prevents internal covariate shift, dramatically stabilizes training.</li>
+                <li><span class="hl">Activation Functions:</span> Generator: ReLU (all layers) + Tanh (output). Discriminator: LeakyReLU everywhere (slope=0.2) — avoids dead neurons.</li>
+                <li><span class="hl">No Pooling Layers:</span> Learnable strided convolutions replace all pooling — the network learns its own spatial transformations.</li>
+            </ul>
+            <h4>Why use CNN in DCGAN?</h4>
+            <p>Convolutional layers capture <b>spatial hierarchies</b> in images (edges → textures → shapes → objects), making them far superior to dense layers for any visual/image task.</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain Conditional GAN (CGAN) — architecture & working.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p>In vanilla GAN, you have <b>no control</b> over what the Generator creates. <span class="hl">CGAN (Conditional GAN)</span> solves this by feeding a <b>condition label y</b> (class label, text embedding, or image) as additional input to <i>both</i> G and D.</p>
+            <div class="formula">G input: [z, y]  →  G(z|y)  — Generate sample conditioned on y
+D input: [x, y]  →  D(x|y)  — Discriminate given condition</div>
+            <h4>Key Difference from Vanilla GAN:</h4>
+            <p>You can explicitly say: "Generate a digit 7" or "Generate a cat." The condition y guides the generation process instead of leaving it to random noise alone.</p>
+            <h4>Applications:</h4>
+            <ul>
+                <li>Text-to-Image generation (condition = text description)</li>
+                <li>Image-to-Image translation (condition = input image)</li>
+                <li>Super-resolution (condition = low-res image)</li>
+                <li>Facial attribute editing (condition = target attribute like "add glasses")</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text">Explain CycleGAN and its applications.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p><span class="hl">CycleGAN</span> performs <b>unpaired image-to-image translation</b> — converting images from one visual domain to another <i>without requiring matched training pairs</i>.</p>
+            <h4>How it works — Cycle Consistency:</h4>
+            <p>CycleGAN trains two generator pairs: G (X→Y) and F (Y→X). The key innovation is the <span class="hl">Cycle Consistency Loss</span>:</p>
+            <div class="formula">X → G(X) → F(G(X)) ≈ X  (must reconstruct original)
+Y → F(Y) → G(F(Y)) ≈ Y  (must reconstruct original)</div>
+            <p>This bidirectional constraint forces the generators to learn meaningful, content-preserving translations even without paired examples.</p>
+            <h4>Applications:</h4>
+            <ul>
+                <li>Horse ↔ Zebra domain translation</li>
+                <li>Summer ↔ Winter photo conversion</li>
+                <li>Photo → Monet/Van Gogh painting style</li>
+                <li>Medical: MRI ↔ CT scan synthesis (generating one modality from another)</li>
+                <li>Day → Night image conversion for autonomous driving datasets</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bm">10 Marks</span><span class="badge bh">⭐</span> Applications of GAN in the Real World.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">Image Synthesis:</span> NVIDIA's StyleGAN generates photorealistic human faces that do not exist (<i>thispersondoesnotexist.com</i>). Controllable fine-grained facial attribute editing.</li>
+                <li><span class="hl">Medical Data Augmentation:</span> Generating synthetic labeled MRI/CT scans to expand rare-disease training datasets without extra patient scans or ethical issues.</li>
+                <li><span class="hl">Super Resolution (SRGAN):</span> Upscaling blurry, low-resolution images to HD quality — used in satellite imaging, surveillance footage enhancement, and old photo restoration.</li>
+                <li><span class="hl">Video Game Development:</span> AI-generated textures, characters, terrain maps, and NPC faces — accelerating development pipelines.</li>
+                <li><span class="hl">Drug Discovery:</span> GANs generate novel molecular structures with desired drug-like properties (solubility, toxicity profiles) — dramatically cutting pharma research timelines.</li>
+                <li><span class="hl">Fashion & Retail:</span> Virtual try-on — overlaying clothing onto user images without physical fitting. Generating 360° views of products from limited photos.</li>
+                <li><span class="hl">Art & Entertainment:</span> GAN-generated artwork has been sold at Christie's auction for $432,500. Used in film for de-aging actors and creating visual effects.</li>
+                <li><span class="hl">Data Privacy:</span> Generating synthetic datasets that statistically match real private data (e.g., patient records) — allowing AI training without exposing sensitive information.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  UNIT 3: VAE                                   -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title s3">✅ Unit 3 — Variational Autoencoders (VAE)</div>
+<div class="qa-container">
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain VAE Architecture and Working.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <div class="diagram">
+                <div class="dbox" style="background:#1d4ed8">Input X<br><small>e.g., Image</small></div>
+                <div class="darr">➔</div>
+                <div class="dbox" style="background:#7c3aed">Encoder<br><small>Outputs μ and σ</small></div>
+                <div class="darr">➔</div>
+                <div class="dbox" style="background:#b45309">Latent z<br><small>Sample from N(μ,σ)</small></div>
+                <div class="darr">➔</div>
+                <div class="dbox" style="background:#15803d">Decoder<br><small>Reconstruct X̂</small></div>
+            </div>
+            <ul>
+                <li><span class="hl">Encoder:</span> Maps input X to parameters of a probability distribution — outputs mean vector μ and log-variance vector σ (not a fixed point like standard AE).</li>
+                <li><span class="hl">Sampling (Reparameterization Trick):</span> Sample z = μ + σ·ε where ε ~ N(0,1). This trick allows backpropagation through the stochastic sampling step.</li>
+                <li><span class="hl">Decoder:</span> Maps latent vector z back to reconstruct the original input X̂.</li>
+            </ul>
+            <h4>Key Idea:</h4>
+            <p>Instead of encoding to a fixed point in latent space, VAE encodes to a <span class="hl">probability distribution</span>. This makes the latent space continuous and well-organized, enabling true generative capability by sampling any z from the prior N(0,1).</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain the Latent Space in VAE.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p>The <span class="hl">Latent Space</span> is a compressed, lower-dimensional mathematical space that captures the essential features and structure of the training data.</p>
+            <ul>
+                <li>In a standard Autoencoder: distinct data points map to isolated, scattered points in latent space — space between them is meaningless.</li>
+                <li>In VAE: the KL Divergence loss forces the latent space to follow a standard Gaussian N(0,1) — making it <span class="hl">continuous and structured</span>.</li>
+                <li><span class="hl">Interpolation:</span> Smoothly interpolating between two latent points produces semantically meaningful intermediate images. E.g., interpolating between a "smiling face" and "frowning face" point gives a progressively changing expression.</li>
+                <li><span class="hl">Generation:</span> Sample any random z ~ N(0,1) and decode it → always produces a valid, realistic output (e.g., a valid handwritten digit).</li>
+            </ul>
+            <h4>Disentangled Latent Space:</h4>
+            <p>Ideally, individual latent dimensions control specific meaningful attributes (e.g., dimension 3 = face rotation, dimension 7 = smile intensity). β-VAE enforces stronger disentanglement.</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain the VAE Loss Function — Reconstruction + KL Divergence.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p>VAE Total Loss has <span class="hl">two components</span>:</p>
+            <div class="formula">L = Reconstruction Loss + KL Divergence Loss</div>
+            <ul>
+                <li><span class="hl">Reconstruction Loss:</span> Measures how accurately the Decoder reproduced the original input. Uses MSE (for continuous data) or Binary Cross-Entropy (for image pixels). Pushes the network to produce faithful reconstructions.</li>
+                <li><span class="hl">KL Divergence Loss:</span> Measures how much the learned latent distribution q(z|x) = N(μ,σ²) diverges from the prior standard normal N(0,1).</li>
+            </ul>
+            <div class="formula">KL[q(z|x) || p(z)] = -½ × Σ(1 + log σ² - μ² - σ²)</div>
+            <h4>What each term does:</h4>
+            <ul>
+                <li><b>Reconstruction Loss</b> → Encourages accurate data reproduction (decoder quality).</li>
+                <li><b>KL Loss</b> → Regularizes the latent space to be well-organized and Gaussian-shaped so that <span class="hl">any random sample can be decoded into valid data</span>.</li>
+                <li>These two terms create a trade-off: too much KL penalty makes reconstruction blurry; too little makes the latent space fragmented.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Difference between Autoencoder (AE) and Variational Autoencoder (VAE).</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <table>
+                <tr><th>Feature</th><th>Autoencoder (AE)</th><th>Variational Autoencoder (VAE)</th></tr>
+                <tr><td><b>Latent Representation</b></td><td>Fixed point in latent space</td><td>Probability distribution N(μ, σ²)</td></tr>
+                <tr><td><b>Can Generate New Data?</b></td><td>❌ No (deterministic)</td><td>✅ Yes (sample from distribution)</td></tr>
+                <tr><td><b>Loss Function</b></td><td>Reconstruction only</td><td>Reconstruction + KL Divergence</td></tr>
+                <tr><td><b>Latent Space</b></td><td>Discontinuous, fragmented</td><td>Continuous, smooth, Gaussian</td></tr>
+                <tr><td><b>Interpolation</b></td><td>Meaningless between points</td><td>Semantically smooth & meaningful</td></tr>
+                <tr><td><b>Type</b></td><td>Deterministic model</td><td>Probabilistic (Generative) model</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text">Types of Autoencoders — Sparse, Denoising, Contractive.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">Sparse Autoencoder:</span> Adds an L1 sparsity penalty to the hidden layer activations. Forces most neurons to remain zero (inactive) for any given input. This encourages the network to learn a highly compact set of truly important features.</li>
+                <li><span class="hl">Denoising Autoencoder (DAE):</span> The input is artificially corrupted with random noise (Gaussian noise, masking pixels). The network must reconstruct the <b>clean original</b> from the corrupted version. This forces learning of robust, noise-invariant feature representations. Application: image denoising, robustness improvement.</li>
+                <li><span class="hl">Contractive Autoencoder (CAE):</span> Adds a Frobenius norm penalty on the Jacobian of the encoder's activations w.r.t. the input. This penalizes large activation changes in response to small input perturbations — making the encoder robust to tiny input variations.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  UNIT 4: Transfer Learning                     -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title s4">✅ Unit 4 — Transfer Learning</div>
+<div class="qa-container">
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> What is Transfer Learning? Explain with example.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p><span class="hl">Transfer Learning</span> is the technique of taking a model pre-trained on a massive source dataset and reusing its learned weights as the starting point for a new but related target task — instead of training from random initialization.</p>
+            <h4>Why it works:</h4>
+            <p>Low-level neural network features (edges, textures, colors) are universally useful across visual tasks. A model trained on ImageNet has already learned these fundamental representations — new tasks need only learn high-level task-specific layers.</p>
+            <h4>Example:</h4>
+            <ul>
+                <li>Take <span class="hl">VGG16 pre-trained on ImageNet</span> (1.2M images, 1000 classes).</li>
+                <li>Remove the final 1000-class softmax layer.</li>
+                <li>Add a new Dense layer with 2 output neurons for your task (e.g., X-ray — Pneumonia vs Normal).</li>
+                <li>Fine-tune on just 500 chest X-ray images → Achieves ~90%+ accuracy.</li>
+            </ul>
+            <h4>Benefits:</h4>
+            <ul>
+                <li>Works with <b>very limited labeled data</b> in the target domain.</li>
+                <li>Dramatically reduces training time (hours vs weeks).</li>
+                <li>Significantly lower computational cost.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Difference between Feature Extraction and Fine-Tuning.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <table>
+                <tr><th>Aspect</th><th>Feature Extraction</th><th>Fine-Tuning</th></tr>
+                <tr><td><b>Pre-trained Weights</b></td><td>Completely Frozen (unchanged)</td><td>Unfrozen — updated with small LR</td></tr>
+                <tr><td><b>Which Layers Trained</b></td><td>Only the new classifier head</td><td>All or most layers from some layer onwards</td></tr>
+                <tr><td><b>Data Required</b></td><td>Very small dataset works well</td><td>Moderate to large dataset needed</td></tr>
+                <tr><td><b>Risk</b></td><td>Low — pre-trained features preserved</td><td>Catastrophic forgetting risk with high LR</td></tr>
+                <tr><td><b>Best For</b></td><td>Source and target tasks very similar</td><td>Target task has domain differences</td></tr>
+                <tr><td><b>Training Speed</b></td><td>Very fast — few parameters updated</td><td>Slower — full backward pass through network</td></tr>
+            </table>
+            <h4>Best Practice:</h4>
+            <p>Often done in stages: first freeze all layers and train only the head (Feature Extraction). Then unfreeze top conv blocks and fine-tune with a very low learning rate (1e-5 to 1e-4) to gently adapt the model.</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text">Applications of Transfer Learning & Recent Advancements (Self-Supervised, Meta-Learning).</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <h4>Applications:</h4>
+            <ul>
+                <li><span class="hl">Computer Vision:</span> Medical image diagnosis (X-ray classification, tumor detection) using ResNet/VGG pre-trained on ImageNet.</li>
+                <li><span class="hl">NLP:</span> BERT fine-tuned for sentiment analysis, question answering, named entity recognition.</li>
+                <li><span class="hl">Speech:</span> Wav2Vec pre-trained on unlabeled speech, fine-tuned for low-resource language transcription.</li>
+                <li><span class="hl">Robotics:</span> Pre-trained vision models adapted for robotic manipulation tasks.</li>
+            </ul>
+            <h4>Recent Advancements:</h4>
+            <ul>
+                <li><span class="hl">Self-Supervised Learning:</span> Pre-train on unlabeled data by creating auxiliary tasks (e.g., predict masked image patches — MAE; predict next token — GPT). Eliminates need for expensive labeled pre-training data. Examples: DINO, SimCLR, MAE.</li>
+                <li><span class="hl">Meta-Learning ("Learning to Learn"):</span> Train a model explicitly to rapidly adapt to brand-new tasks with only a few examples (few-shot learning). MAML (Model-Agnostic Meta-Learning) finds an initialization point from which fine-tuning on any new task converges in very few gradient steps.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  UNIT 5: Ensemble Learning                     -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title s5">✅ Unit 5 — Ensemble Learning</div>
+<div class="qa-container">
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain Bagging and Boosting — concept & key difference.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <table>
+                <tr><th>Feature</th><th>Bagging</th><th>Boosting</th></tr>
+                <tr><td><b>Training Order</b></td><td>Parallel — independent models</td><td>Sequential — each corrects previous errors</td></tr>
+                <tr><td><b>Primary Goal</b></td><td>Reduce Variance (overfitting)</td><td>Reduce Bias (underfitting)</td></tr>
+                <tr><td><b>Data Sampling</b></td><td>Bootstrap samples with replacement</td><td>Entire dataset; misclassified points upweighted</td></tr>
+                <tr><td><b>Final Output</b></td><td>Majority vote / Average</td><td>Weighted sum of weak learners</td></tr>
+                <tr><td><b>Model Weights</b></td><td>All models weighted equally</td><td>More accurate models get higher weight</td></tr>
+                <tr><td><b>Example</b></td><td>Random Forest</td><td>AdaBoost, XGBoost, Gradient Boost</td></tr>
+            </table>
+            <h4>How Bagging Reduces Overfitting:</h4>
+            <p>By training N models on different random bootstrap subsets and <span class="hl">averaging predictions</span>, individual model variances cancel each other out — yielding a stable, generalized ensemble that doesn't memorize noise.</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain AdaBoost Algorithm step by step.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p><span class="hl">AdaBoost (Adaptive Boosting)</span> builds a strong classifier by sequentially combining many weak classifiers (typically single-level Decision Stumps):</p>
+            <ol>
+                <li><span class="hl">Initialize:</span> Assign equal weight wᵢ = 1/N to every training sample.</li>
+                <li><span class="hl">Train Weak Learner:</span> Fit a simple classifier (decision stump) on the weighted dataset.</li>
+                <li><span class="hl">Compute Error:</span> ε = Σ wᵢ × I(yᵢ ≠ ŷᵢ) — weighted misclassification rate.</li>
+                <li><span class="hl">Compute Learner Weight:</span> α = ½ × ln((1−ε)/ε). High accuracy → high α (more say in final vote).</li>
+                <li><span class="hl">Update Sample Weights:</span> Increase weights of all <span class="hl3">misclassified</span> samples → next learner focuses harder on hard examples. Decrease weights of correctly classified samples.</li>
+                <li><span class="hl">Normalize</span> weights so they sum to 1. Repeat from step 2 for T rounds.</li>
+                <li><span class="hl">Final Prediction:</span> Weighted majority vote: H(x) = sign(Σ αₜ × hₜ(x)).</li>
+            </ol>
+            <p><b>Limitation:</b> Very sensitive to noisy data and outliers — continuously upweights genuinely mislabeled examples, degrading performance.</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Explain XGBoost and its advantages.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <p><span class="hl">XGBoost (Extreme Gradient Boosting)</span> is a highly engineered, scalable implementation of gradient-boosted decision trees. It consistently dominates ML competitions (Kaggle).</p>
+            <h4>Key Advantages over standard Gradient Boosting:</h4>
+            <ul>
+                <li><span class="hl">Built-in L1 & L2 Regularization:</span> Directly penalizes model complexity in the objective function — prevents overfitting that vanilla GBM lacks natively.</li>
+                <li><span class="hl">Parallel Tree Building:</span> Builds tree nodes level-by-level using multi-threaded parallel processing — significantly faster training.</li>
+                <li><span class="hl">Approximate Split Finding:</span> Uses histogram-based quantile sketching to find optimal splits without scanning all data — scalable to huge datasets.</li>
+                <li><span class="hl">Handles Missing Data:</span> Automatically learns the optimal default direction for missing value splits during training — no manual imputation needed.</li>
+                <li><span class="hl">Efficient Tree Pruning:</span> Grows trees to max_depth then prunes backwards using a gain threshold (max_delta_step) — more conservative than greedy early stopping.</li>
+                <li><span class="hl">Sparsity Awareness:</span> Optimized for sparse input matrices — common with one-hot encoded categorical features.</li>
+            </ul>
+            <h4>XGBoost Objective Function:</h4>
+            <div class="formula">L = Σ l(yᵢ, ŷᵢ)  +  Σ Ω(fₖ)
+where Ω(f) = γT + ½λ||w||²  (tree complexity penalty)</div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text">Stacking vs Blending in Ensemble Learning.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <table>
+                <tr><th>Feature</th><th>Stacking</th><th>Blending</th></tr>
+                <tr><td><b>Base Model Training</b></td><td>K-Fold Cross-Validation on full train set</td><td>Single train/validation split</td></tr>
+                <tr><td><b>Meta-Learner Training Data</b></td><td>Out-of-fold predictions (no leakage)</td><td>Held-out validation set predictions</td></tr>
+                <tr><td><b>Data Efficiency</b></td><td>Higher — uses all data via CV</td><td>Lower — sacrifices validation set</td></tr>
+                <tr><td><b>Overfitting Risk</b></td><td>Lower</td><td>Slightly higher</td></tr>
+                <tr><td><b>Complexity</b></td><td>Higher implementation complexity</td><td>Simpler to implement</td></tr>
+            </table>
+            <h4>Common Meta-Learners used:</h4>
+            <p>Linear Regression, Logistic Regression (for classification), or even another XGBoost model as the meta-learner stacked on top of base models (Random Forest, SVM, KNN, etc.).</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  UNIT 6: Emerging Technologies                 -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title s6">✅ Unit 6 — Emerging Technologies: AR, VR & Metaverse</div>
+<div class="qa-container">
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bh">⭐</span> Concepts of AR, VR and Metaverse — explained.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <table>
+                <tr><th>Feature</th><th>AR (Augmented Reality)</th><th>VR (Virtual Reality)</th></tr>
+                <tr><td><b>Environment</b></td><td>Overlays digital elements onto real physical world</td><td>Fully immersive, entirely synthetic virtual world</td></tr>
+                <tr><td><b>Device</b></td><td>Smartphone camera, AR Glasses (Microsoft HoloLens)</td><td>VR Headset (Meta Quest, HTC Vive, PSVR)</td></tr>
+                <tr><td><b>Real World</b></td><td>Still visible — digital is additive</td><td>Completely replaced by virtual environment</td></tr>
+                <tr><td><b>Examples</b></td><td>Pokémon GO, Snapchat/Instagram filters, IKEA Place app</td><td>VR gaming, virtual architecture tours, flight simulators</td></tr>
+            </table>
+            <h4>Metaverse:</h4>
+            <p>A persistent, interconnected 3D virtual universe combining AR/VR, social interaction, real-time collaboration, digital economies (NFTs, blockchain ownership), and AI-generated avatars. Key enabling technologies: 5G networks, spatial computing, GAN-generated photorealistic avatars, and edge computing.</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text">Applications of AR/VR in Industry.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">Healthcare:</span> VR surgical training simulations (risk-free practice), AR-guided robotic surgery (anatomy overlay during procedure), VR exposure therapy for phobias/PTSD.</li>
+                <li><span class="hl">Education:</span> Virtual labs (chemistry experiments without chemicals), AR textbooks with 3D molecular models, VR historical tours.</li>
+                <li><span class="hl">Real Estate:</span> Virtual property walkthroughs before construction is complete. AR overlay of furniture/decor in empty rooms.</li>
+                <li><span class="hl">Military & Defense:</span> VR battle simulation training. AR HUD (Heads-Up Display) for soldiers — live mission data overlaid on field view.</li>
+                <li><span class="hl">Retail & E-Commerce:</span> AR virtual try-on (glasses, clothing, makeup). 3D product visualization from every angle before purchase.</li>
+                <li><span class="hl">Manufacturing:</span> AR-assisted assembly — digital overlay guides technicians step-by-step on physical equipment. Reduces error rates.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text">Challenges in the Metaverse Ecosystem.</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl3">Privacy & Security:</span> Persistent identity tracking across virtual spaces. Biometric data (eye tracking, body movement) is far more sensitive than traditional user data.</li>
+                <li><span class="hl3">Digital Divide:</span> High-end VR headsets are expensive ($300–$3500), excluding large global populations from participating.</li>
+                <li><span class="hl3">Interoperability:</span> No universal standard — Meta's Horizon, Decentraland, and Microsoft Mesh are isolated silos. True metaverse requires seamless avatar/asset portability across platforms.</li>
+                <li><span class="hl3">Mental Health:</span> Risk of addiction, dissociation from reality, social isolation from physical world, and body dysmorphia from idealized avatar representations.</li>
+                <li><span class="hl3">Latency & Infrastructure:</span> Immersive real-time VR requires &lt;20ms latency. Current global network infrastructure (even 5G) is inconsistent for this demand at scale.</li>
+                <li><span class="hl3">Regulation & Governance:</span> Who owns virtual land? Who arbitrates virtual crimes? Existing legal frameworks cannot map to persistent virtual economies.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  PRACTICALS / QUICK VIVA                       -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section-title sp">🎯 Practical Viva — Quick Answer Format</div>
+<div class="qa-container">
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bp">Pract: HMM</span> What is HMM? Where is it used? Markov Property? HMM vs Markov Chain? Transition vs Emission Probability?</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">What is HMM?</span> A sequential probabilistic model with hidden states that generate observable emissions. You can observe the outputs but not the states directly.</li>
+                <li><span class="hl">Where used?</span> Speech recognition (phoneme modeling), POS tagging in NLP, gesture recognition, DNA sequence analysis, financial market modeling.</li>
+                <li><span class="hl">Markov Property:</span> "The next state depends ONLY on the current state — not the full history." This memoryless assumption simplifies computation enormously.</li>
+                <li><span class="hl">HMM vs Markov Chain:</span> Markov Chain = states are directly observable. HMM = states are hidden; you observe only the emissions they produce.</li>
+                <li><span class="hl">Transition Probability:</span> P(state at t+1 | state at t). How likely to move from one hidden state to another. E.g., P(Rainy tomorrow | Sunny today) = 0.3.</li>
+                <li><span class="hl">Emission Probability:</span> P(observation | hidden state). What observable output a state tends to produce. E.g., P(carry umbrella | Rainy state) = 0.9.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bp">Pract: GMM</span> What is GMM? GMM vs K-Means? EM Algorithm? Why is GMM Probabilistic?</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">What is GMM?</span> A probabilistic clustering model that assumes data is generated from a mixture of K Gaussian distributions, each with its own μ, σ, and weight π.</li>
+                <li><span class="hl">GMM vs K-Means:</span> K-Means makes hard cluster assignments; GMM gives soft probabilistic memberships (point can be 70% Cluster A, 30% Cluster B). GMM handles elliptical clusters; K-Means only spherical.</li>
+                <li><span class="hl">EM Algorithm:</span> <b>E-Step:</b> Compute probability each point belongs to each cluster (soft assignment). <b>M-Step:</b> Update μ, σ, π to maximize log-likelihood. Repeat until convergence.</li>
+                <li><span class="hl">Why GMM is Probabilistic:</span> Unlike K-Means' hard binary assignment, GMM outputs a <b>probability distribution</b> over cluster memberships for every data point — capturing uncertainty in cluster assignment.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bp">Pract: Bayesian Net</span> What is Bayesian Network? Conditional Probability? BN vs HMM?</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">What is Bayesian Network?</span> A Directed Acyclic Graph where nodes = random variables, edges = conditional dependencies. Each node stores P(node | parents) in a Conditional Probability Table (CPT).</li>
+                <li><span class="hl">Conditional Probability:</span> P(A|B) = probability of A given that B has occurred. Computed via Bayes' Theorem: <code>P(A|B) = P(B|A)×P(A) / P(B)</code>.</li>
+                <li><span class="hl">BN vs HMM:</span> HMM is a specialized sequential temporal model (for time-series data with hidden states). Bayesian Network is more general — models arbitrary complex, non-sequential causal dependencies between multiple variables.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bp">Pract: GAN/DCGAN/CGAN</span> What is GAN? Generator/Discriminator roles? DCGAN? CGAN? Mode Collapse? Unstable Training?</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">What is GAN?</span> Two competing neural networks — Generator creates fake data from noise; Discriminator tries to distinguish real from fake. Their adversarial competition improves both models.</li>
+                <li><span class="hl">Generator:</span> Takes random noise z → produces synthetic data. Goal: fool D so D(G(z)) → 1.</li>
+                <li><span class="hl">Discriminator:</span> Takes real or fake data → outputs probability of being real. Goal: D(real) → 1, D(fake) → 0.</li>
+                <li><span class="hl">DCGAN:</span> Uses Convolutional layers instead of Dense layers. Adds BatchNorm. Uses LeakyReLU in D and ReLU+Tanh in G. No pooling layers. Far better for image tasks — CNNs capture spatial hierarchies.</li>
+                <li><span class="hl">Conditional GAN:</span> Adds condition label y to both G and D inputs — allows controlled, targeted generation (e.g., "generate only digit 3").</li>
+                <li><span class="hl">Mode Collapse:</span> G fixates on generating only a narrow set of outputs that reliably fool D — losing diversity. G has not learned the full data distribution.</li>
+                <li><span class="hl">Unstable Training:</span> G and D must remain balanced. If D dominates, G gets vanishing gradients. If G dominates, D loses ability to give useful loss signals. Result: training oscillates or diverges.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bp">Pract: VAE</span> What is VAE? Latent Space? Why Probabilistic? AE vs VAE?</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">What is VAE?</span> A generative model combining an Encoder (maps input to a probability distribution μ, σ) and Decoder (reconstructs input from a sampled latent vector z). Trained with Reconstruction + KL Divergence loss.</li>
+                <li><span class="hl">Latent Space:</span> Compressed, lower-dimensional representation space. VAE forces this to follow N(0,1) — making it continuous and smooth. Any point in latent space decodes into a valid output.</li>
+                <li><span class="hl">Why VAE is Probabilistic:</span> Encoder produces a distribution (μ, σ) rather than a fixed latent point. At inference, you sample z from this distribution — enabling stochastic, diverse generation.</li>
+                <li><span class="hl">AE vs VAE:</span> AE encodes to a fixed point, cannot generate new data, has fragmented latent space. VAE encodes to a distribution, can generate new data, has smooth continuous latent space.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bp">Pract: Transfer</span> What is a pre-trained model? Why use Transfer Learning? Feature Extraction vs Fine-Tuning?</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">Pre-trained Model:</span> A model already trained on a large source dataset (e.g., VGG16 on ImageNet 1.2M images). Its weights encode general knowledge — low-level visual features (edges, textures) and high-level semantic features (objects, scenes).</li>
+                <li><span class="hl">Why use Transfer Learning?</span> (1) Limited labeled data for target task. (2) Massive compute savings — no training from scratch. (3) Pre-trained features generalize well. Training ResNet from scratch takes weeks on 8 GPUs; fine-tuning takes hours.</li>
+                <li><span class="hl">Feature Extraction:</span> Freeze ALL pre-trained weights. Only train newly added head layers. Best when source and target tasks are very similar and target dataset is tiny.</li>
+                <li><span class="hl">Fine-Tuning:</span> Unfreeze some or all pre-trained layers and retrain with a very small learning rate alongside the new head. Best when target task differs somewhat from source, and you have a moderate-sized dataset.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion-header">
+            <div class="q-text"><span class="badge bp">Pract: Ensemble</span> Bagging? Boosting? Difference? Overfitting & how Bagging reduces it?</div>
+            <i class="icon">+</i>
+        </div>
+        <div class="accordion-content">
+            <ul>
+                <li><span class="hl">Bagging:</span> Train multiple independent models on different random bootstrap samples of training data simultaneously. Combine predictions via majority vote (classification) or averaging (regression). Example: Random Forest.</li>
+                <li><span class="hl">Boosting:</span> Train models sequentially. Each new model focuses specifically on the errors of the previous one (misclassified samples get higher weight). Combine via weighted vote. Example: AdaBoost, XGBoost.</li>
+                <li><span class="hl">Key Difference:</span> Bagging = Parallel, reduces Variance (overfitting). Boosting = Sequential, reduces Bias (underfitting).</li>
+                <li><span class="hl">Overfitting:</span> Model memorizes training noise → very high training accuracy, poor test accuracy. Detected by large gap between training and validation performance.</li>
+                <li><span class="hl">How Bagging Reduces Overfitting:</span> By training on different random subsets and averaging predictions, individual model variance (sensitivity to training noise) cancels out across the ensemble. The averaged prediction is much smoother and more generalized than any single model.</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<br><br>
+</div><!-- /container -->
+
 <script>
-    const accordions = document.querySelectorAll('.accordion');
-    
-    // Animate cascaded appearance
-    accordions.forEach((acc, index) => {
-        acc.style.animationDelay = `${index * 0.08}s`;
-        
-        const header = acc.querySelector('.accordion-header');
+    document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
-            acc.classList.toggle('active');
+            const acc = header.parentElement;
             const content = acc.querySelector('.accordion-content');
-            if (acc.classList.contains('active')) {
-                content.style.maxHeight = content.scrollHeight + "px";
-            } else {
-                content.style.maxHeight = null;
-            }
-        });
-    });
+            const isOpen = acc.classList.contains('open');
 
-    // Smart Search Logic
-    const searchInput = document.getElementById('searchInput');
-    const sections = document.querySelectorAll('.section-title');
+            // Close all siblings
+            acc.parentElement.querySelectorAll('.accordion').forEach(s => {
+                s.classList.remove('open');
+                s.querySelector('.accordion-content').style.maxHeight = null;
+            });
 
-    searchInput.addEventListener('input', (e) => {
-        const text = e.target.value.toLowerCase();
-        
-        accordions.forEach(acc => {
-            const qaText = acc.textContent.toLowerCase(); // grabs Q, A, and tags
-            const content = acc.querySelector('.accordion-content');
-            
-            if(qaText.includes(text)) {
-                acc.style.display = 'block';
-                // Only auto-expand if there's actual text typed
-                if(text.length > 1) {
-                    acc.classList.add('active');
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } else {
-                    acc.classList.remove('active');
-                    content.style.maxHeight = null;
-                }
-            } else {
-                acc.style.display = 'none';
-                acc.classList.remove('active');
-                content.style.maxHeight = null;
-            }
-        });
-
-        // Hide section titles if no children visible
-        sections.forEach(sec => {
-            let nextEl = sec.nextElementSibling;
-            if(nextEl && nextEl.classList.contains('qa-container')) {
-                let hasVisibleCards = Array.from(nextEl.children).some(card => card.style.display !== 'none');
-                sec.style.display = (hasVisibleCards || text === "") ? 'inline-block' : 'none';
+            if (!isOpen) {
+                acc.classList.add('open');
+                content.style.maxHeight = content.scrollHeight + 'px';
             }
         });
     });
