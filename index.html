@@ -1,755 +1,1529 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIFBA Ultimate Viva Guide</title>
+    <title>Finance & AAI Ultimate Viva Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
-
         :root {
-            --bg-color: #0b0f1a;
-            --text-color: #f8fafc;
-            --accent-primary: #38bdf8;
-            --accent-secondary: #c084fc;
-            --accent-tertiary: #fb7185;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-            --hover-bg: #4ade80;
-            --formula-bg: #0f172a;
+            --bg: #07090f;
+            --card-bg: #0e1420;
+            --card-bg2: #111827;
+            --accent-1: #38bdf8;
+            --accent-2: #a78bfa;
+            --accent-3: #fb7185;
+            --accent-4: #34d399;
+            --text-main: #e2e8f0;
+            --text-dim: #64748b;
+            --text-body: #cbd5e1;
+            --border: #1e2a3a;
+            --border-glow: #1e3a5a;
+            --success: #34d399;
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            overflow-y: scroll;
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56,189,248,0.07), transparent);
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
+        /* HEADER */
         header {
+            padding: 5rem 1rem 4rem;
             text-align: center;
-            padding: 3rem 0 2rem 0;
-            background: radial-gradient(circle at top, #1e293b 0%, #0b0f1a 100%);
-            border-bottom: 1px solid var(--border-color);
             position: relative;
-            z-index: 100;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(167,139,250,0.08) 0%, transparent 70%);
+        }
+
+        .header-tag {
+            display: inline-block;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent-1);
+            background: rgba(56,189,248,0.08);
+            border: 1px solid rgba(56,189,248,0.25);
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
         }
 
         h1 {
-            font-size: 3rem;
-            margin: 0;
-            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
-            background-clip: text;
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 800;
+            background-clip: text;
+            margin-bottom: 0.75rem;
         }
 
         .subtitle {
-            color: #94a3b8;
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 500;
         }
 
+        /* SEARCH */
         .search-container {
-            margin: 2rem auto 0 auto;
-            max-width: 650px;
-            padding: 0 20px;
+            margin: 2.5rem auto 0;
+            max-width: 560px;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-dim);
+            font-size: 1.1rem;
         }
 
         .search-bar {
             width: 100%;
-            padding: 1.2rem 1.8rem;
-            font-size: 1.1rem;
-            border-radius: 15px;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border-radius: 50px;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
+            border: 1px solid var(--border);
+            color: white;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
             outline: none;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            transition: 0.3s;
         }
 
         .search-bar:focus {
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            border-color: rgba(56,189,248,0.5);
+            box-shadow: 0 0 0 3px rgba(56,189,248,0.08);
         }
 
-        .section-title {
+        /* STATS BAR */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            padding: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item { text-align: center; }
+        .stat-num {
+            font-family: 'Syne', sans-serif;
             font-size: 1.8rem;
-            margin-top: 4rem;
-            margin-bottom: 1.5rem;
             font-weight: 800;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.05em; }
+
+        /* CONTAINER */
+        .container {
+            max-width: 980px;
+            margin: 0 auto 4rem;
+            padding: 0 1rem;
+        }
+
+        /* SECTION HEADER */
+        .section-header {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 3.5rem 0 1.2rem;
+            color: var(--text-main);
             display: flex;
             align-items: center;
-            gap: 15px;
-            color: #e2e8f0;
+            gap: 10px;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .section-title span {
-            color: var(--accent-primary);
-        }
-
-        .qa-container {
+        .section-header .section-icon {
             display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--card-bg2);
         }
+
+        .section-count {
+            margin-left: auto;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        /* ACCORDION */
+        .qa-stack { display: flex; flex-direction: column; gap: 0.6rem; }
 
         .accordion {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: border-color 0.25s, box-shadow 0.25s;
         }
 
         .accordion:hover {
-            border-color: var(--accent-secondary);
-            transform: scale(1.01);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(56,189,248,0.2);
         }
 
-        .accordion-header {
-            padding: 1.5rem;
+        .accordion.active {
+            border-color: rgba(56,189,248,0.3);
+            box-shadow: 0 0 20px rgba(56,189,248,0.05);
+        }
+
+        .acc-header {
+            padding: 1rem 1.25rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 600;
-            font-size: 1.1rem;
+            gap: 1rem;
             user-select: none;
         }
 
-        .accordion-header i {
-            transition: transform 0.3s ease;
-            color: var(--accent-secondary);
+        .acc-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex: 1;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .acc-toggle {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            border-radius: 6px;
+            background: var(--card-bg2);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-1);
+            font-size: 1.1rem;
             font-style: normal;
-            font-size: 1.5rem;
+            transition: transform 0.3s, background 0.2s;
         }
 
-        .accordion.active .accordion-header i {
+        .accordion.active .acc-toggle {
             transform: rotate(45deg);
-            color: var(--accent-tertiary);
+            background: rgba(251,113,133,0.1);
+            border-color: rgba(251,113,133,0.3);
+            color: var(--accent-3);
         }
 
-        .accordion.active {
-            border-color: var(--accent-primary);
-        }
-
-        .accordion-content {
-            padding: 0 1.5rem;
+        /* CONTENT */
+        .acc-content {
             max-height: 0;
             overflow: hidden;
-            transition: all 0.3s ease-out;
-            background-color: rgba(15, 23, 42, 0.3);
+            transition: max-height 0.4s ease-out;
         }
 
-        .accordion.active .accordion-content {
-            padding: 1.5rem;
-            border-top: 1px solid var(--border-color);
-            max-height: 1000px;
+        .acc-content-inner {
+            padding: 0 1.25rem 1.25rem;
+            border-top: 1px solid var(--border);
+            margin-top: 0;
+            padding-top: 1.25rem;
+            font-size: 0.93rem;
+            color: var(--text-body);
+            line-height: 1.75;
         }
 
-        .highlight {
-            color: var(--accent-primary);
-            font-weight: 600;
+        .accordion.active .acc-content {
+            max-height: 3000px;
         }
 
-        .formula-box {
-            background: var(--formula-bg);
-            padding: 1rem;
+        /* BADGES */
+        .badge {
+            font-size: 0.62rem;
+            padding: 2px 7px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            flex-shrink: 0;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .badge-finance { background: rgba(56,189,248,0.1); color: var(--accent-1); border: 1px solid rgba(56,189,248,0.25); }
+        .badge-star { background: rgba(167,139,250,0.12); color: var(--accent-2); border: 1px solid rgba(167,139,250,0.3); }
+        .badge-hot { background: rgba(251,113,133,0.1); color: var(--accent-3); border: 1px solid rgba(251,113,133,0.25); }
+
+        /* CONTENT STYLING */
+        .formula {
+            background: #000;
+            padding: 0.9rem 1.2rem;
             border-radius: 8px;
-            border-left: 4px solid var(--accent-secondary);
-            margin: 1rem 0;
+            color: var(--success);
             font-family: 'Courier New', monospace;
-            color: #4ade80;
-            display: inline-block;
+            font-size: 0.9rem;
+            display: block;
+            margin: 0.8rem 0;
+            border-left: 3px solid var(--accent-1);
+            letter-spacing: 0.02em;
         }
 
-        .tag {
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--accent-primary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
+        .highlight { color: var(--accent-1); font-weight: 600; }
+        .hl-green { color: var(--accent-4); font-weight: 600; }
+        .hl-purple { color: var(--accent-2); font-weight: 600; }
+        .hl-red { color: var(--accent-3); font-weight: 600; }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin: 0.75rem 0;
+        }
+
+        @media (max-width: 600px) { .content-grid { grid-template-columns: 1fr; } }
+
+        .content-box {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            font-size: 0.88rem;
+        }
+
+        .content-box-label {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            font-weight: 800;
-            margin-right: 10px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            margin-bottom: 0.4rem;
+            color: var(--accent-1);
         }
 
-        .star-badge {
-            background: linear-gradient(45deg, #f59e0b, #ef4444);
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: white;
-            text-transform: uppercase;
-            margin-left: 10px;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+        .tip-box {
+            background: rgba(52,211,153,0.06);
+            border: 1px solid rgba(52,211,153,0.2);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-top: 0.85rem;
+            font-size: 0.85rem;
+            color: var(--accent-4);
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        .tip-box strong { color: var(--accent-4); }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .warn-box {
+            background: rgba(251,113,133,0.06);
+            border: 1px solid rgba(251,113,133,0.2);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-top: 0.85rem;
+            font-size: 0.85rem;
+            color: var(--accent-3);
         }
 
-        .accordion {
-            animation: slideIn 0.5s ease-out forwards;
-            opacity: 0;
+        ul { padding-left: 1.2rem; }
+        ul li { margin-bottom: 0.4rem; }
+
+        ol { padding-left: 1.2rem; }
+        ol li { margin-bottom: 0.5rem; }
+
+        .steps-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .steps-list li {
+            counter-increment: step-counter;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(30,42,58,0.5);
+        }
+
+        .steps-list li:last-child { border-bottom: none; }
+
+        .steps-list li::before {
+            content: counter(step-counter);
+            min-width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(56,189,248,0.12);
+            border: 1px solid rgba(56,189,248,0.3);
+            color: var(--accent-1);
+            font-size: 0.72rem;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .vs-divider {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0;
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* PROGRESS */
+        .progress-bar-wrap {
+            height: 3px;
+            background: var(--border);
+            border-radius: 2px;
+            margin: 0.5rem 0 1rem;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        /* NO RESULTS */
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-dim);
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .stats-bar { gap: 1.5rem; }
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <div class="container" style="padding: 0;">
-            <h1>🔥 AI for FINANCE AND BANKING</h1>
-            <div class="subtitle">35 HIGH-PROBABILITY VIVA QUESTIONS - SHORT AND DIRECT</div>
-            <div class="search-container">
-                <input type="text" class="search-bar" id="searchInput"
-                    placeholder="Search algorithms, formulas, or keywords (e.g. K-Means, Sharpe)...">
-            </div>
-        </div>
-    </header>
+<header>
+    <div class="header-tag">Viva Preparation 2025</div>
+    <h1>THE FINAL 35</h1>
+    <p class="subtitle">AAI &nbsp;·&nbsp; Finance &nbsp;·&nbsp; Trading Analytics</p>
+    <div class="stats-bar">
+        <div class="stat-item"><div class="stat-num">35</div><div class="stat-label">Questions</div></div>
+        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Topics</div></div>
+        <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Viva-Ready</div></div>
+    </div>
+    <div class="search-container">
+        <span class="search-icon">⌕</span>
+        <input type="text" class="search-bar" id="searchInput" placeholder="Search any question or keyword...">
+    </div>
+</header>
 
-    <div class="container" id="contentContainer">
+<div class="container">
 
-        <!-- DIGITAL BANKING -->
-        <div class="section-title"><span>💻</span> Digital Banking & Basics</div>
-        <div class="qa-container">
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">BANKING</span> 1. Explain Digital Transformation in Banking</div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    The shift from traditional "Branch-Banking" to <span class="highlight">Digital-First Banking</span>.
-                    It involves automating core processes, using Cloud for scalability, and providing mobile-first
-                    services like UPI, Neobanking, and AI-driven customer support.
-                </div>
-            </div>
+    <!-- DIGITAL BANKING -->
+    <div class="section-header">
+        <span class="section-icon">💻</span> Digital Banking &amp; Basics
+        <span class="section-count">4 Questions</span>
+    </div>
+    <div class="qa-stack">
 
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">BANKING</span> 2. Role of AI in Financial Services <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    AI revolutionizes finance through:
-                    <ul>
-                        <li><span class="highlight">Fraud Detection:</span> Real-time monitoring of suspicious patterns.
-                        </li>
-                        <li><span class="highlight">Credit Scoring:</span> Using ML to assess risk for users without
-                            credit history.</li>
-                        <li><span class="highlight">Algorithmic Trading:</span> Executing trades at speeds impossible
-                            for humans.</li>
-                        <li><span class="highlight">Personalized Banking:</span> AI chatbots (NLP) and tailored
-                            investment advice.</li>
-                    </ul>
-                </div>
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-finance">Bank</span> 1. Explain Digital Transformation in Banking</div>
+                <i class="acc-toggle">+</i>
             </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">BANKING</span> 3. Explain Digital Money Transfer System</div>
-                    <i>+</i>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">Digital Transformation in Banking</span> is the fundamental shift from legacy, branch-centric banking to a <span class="highlight">Digital-First</span> model — where every product, process, and customer interaction is rebuilt around technology.</p>
+                <div class="content-grid" style="margin-top:0.9rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">What Changes</div>
+                        <ul>
+                            <li>Paper forms → Digital workflows & APIs</li>
+                            <li>On-premise servers → Cloud infrastructure</li>
+                            <li>Branch tellers → Mobile & web-first UX</li>
+                            <li>Manual fraud review → Real-time AI scoring</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Key Pillars</div>
+                        <ul>
+                            <li><span class="highlight">Cloud Computing</span> – Scalable infra (AWS, Azure)</li>
+                            <li><span class="highlight">Open Banking</span> – Third-party APIs via RBI guidelines</li>
+                            <li><span class="highlight">AI/ML</span> – Personalization & fraud prevention</li>
+                            <li><span class="highlight">Blockchain</span> – Immutable records, faster settlement</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    Systems that allow electronic movement of funds. Key examples:
-                    <ul>
-                        <li><b>RTGS:</b> High-value, real-time settlement.</li>
-                        <li><b>NEFT:</b> Deferred settlement in batches.</li>
-                        <li><b>UPI:</b> Peer-to-peer, instant 24/7 mobile transfers using a VPA (Virtual Payment
-                            Address).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">BANKING</span> 4. Security issues in digital payments <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Major threats include <span class="highlight">Phishing</span> (fake links), <span
-                        class="highlight">MITM (Man-in-the-Middle)</span> attacks where data is intercepted, <span
-                        class="highlight">SIM Swapping</span>, and <span class="highlight">Card Not Present (CNP)</span>
-                    fraud.
-                </div>
-            </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> Mention a real example — HDFC's digital bank, Kotak 811 zero-contact account, or SBI's YONO app. Examiners love practical references.</div>
+            </div></div>
         </div>
 
-        <!-- FINANCIAL STATISTICS -->
-        <div class="section-title"><span>📊</span> Financial Statistics</div>
-        <div class="qa-container">
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">STATS</span> 5. Explain Sharpe Ratio (formula + use) <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    It measures the <span class="highlight">risk-adjusted return</span> of an investment.
-                    <div class="formula-box">Sharpe Ratio = (Rp - Rf) / σp</div>
-                    <br>Where <b>Rp</b> = Portfolio Return, <b>Rf</b> = Risk-Free Rate, <b>σp</b> = Std Dev (Risk).
-                </div>
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 2. Role of AI in Financial Services</div>
+                <i class="acc-toggle">+</i>
             </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">STATS</span> 6. Importance of Sharpe Ratio in portfolio analysis <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    It helps investors understand if their returns are due to <span class="highlight">smart
-                        investing</span> or <span class="highlight">taking too much risk</span>. A ratio > 1.0 is
-                    considered good; > 2.0 is very good.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">STATS</span> 7. Mean, Variance, Standard Deviation in finance</div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    <b>Mean:</b> The average expected return.<br>
-                    <b>Variance:</b> Measures the spread of returns (risk).<br>
-                    <b>Standard Deviation:</b> The square root of variance; it is the most common measure of <span
-                        class="highlight">Volatility</span>.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">STATS</span> 8. Correlation vs Covariance <span class="star-badge">⭐</span>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>AI is the <span class="highlight">core intelligence layer</span> of modern FinTech. It converts raw financial data into decisions and actions without human intervention.</p>
+                <div class="content-grid" style="margin-top:0.9rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">🛡️ Fraud Detection</div>
+                        Real-time transaction scoring using anomaly detection models. Flags suspicious patterns in milliseconds (e.g., a ₹50,000 ATM withdrawal at 3 AM from an account that spends ₹500/day).
                     </div>
-                    <i>+</i>
+                    <div class="content-box">
+                        <div class="content-box-label">💬 NLP Chatbots</div>
+                        Models like BERT power 24/7 customer support. HDFC's <em>Eva</em> handles 5M+ queries/month. Understands intent, not just keywords.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">📊 Credit Scoring</div>
+                        Traditional CIBIL score uses 5 variables. AI uses 200+ — social behavior, utility bills, UPI history — enabling loans for the unbanked population.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🤖 Algo-Trading</div>
+                        Executes trades in microseconds based on momentum, news sentiment, or arbitrage logic. Eliminates emotional bias from trading decisions.
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    <b>Covariance:</b> Tells you if two stocks move together (direction).<br>
-                    <b>Correlation:</b> A scaled version of covariance (between -1 and 1) that tells you <span
-                        class="highlight">how strongly</span> they move together.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">STATS</span> 9. Skewness and Kurtosis</div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    <b>Skewness:</b> Measures the asymmetry of returns. Most investors prefer "Positive Skew" (small
-                    chance of huge gains).<br>
-                    <b>Kurtosis:</b> Measures the "Fatness" of tails (risk of extreme rare events or 'Black Swans').
-                </div>
-            </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> If asked a follow-up — say: <em>"AI also enables Robo-Advisors like Zerodha's Nudge, which automate portfolio rebalancing based on risk profiles."</em></div>
+            </div></div>
         </div>
 
-        <!-- CLUSTERING -->
-        <div class="section-title"><span>📈</span> Clustering (Very Important)</div>
-        <div class="qa-container">
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ML</span> 10. Explain K-Means Algorithm <span class="star-badge">⭐</span>
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-finance">Bank</span> 3. Explain Digital Money Transfer System</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>These are RBI-regulated electronic systems that move funds without physical currency. Each serves a different use case:</p>
+                <div class="content-grid" style="margin-top:0.9rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">RTGS</div>
+                        Real-Time Gross Settlement. Minimum ₹2 Lakh. Settles each transaction <span class="highlight">individually and instantly</span>. Used for large corporate transfers.
                     </div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    An <b>Unsupervised ML</b> algorithm that groups data points into 'K' clusters by minimizing the
-                    distance between points and their respective cluster centroid.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ML</span> 11. Steps of K-Means clustering <span class="star-badge">⭐</span>
+                    <div class="content-box">
+                        <div class="content-box-label">NEFT</div>
+                        National Electronic Funds Transfer. Works in <span class="highlight">half-hourly batches</span>, available 24×7. No minimum amount. Suitable for routine personal/business payments.
                     </div>
-                    <i>+</i>
+                    <div class="content-box">
+                        <div class="content-box-label">UPI</div>
+                        Unified Payments Interface. Mobile-to-mobile, real-time, 24×7. Uses Virtual Payment Address (VPA). <span class="highlight">Interoperable</span> — works across all bank apps.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">IMPS</div>
+                        Immediate Payment Service. Instant, 24×7, up to ₹5 Lakh. Available via mobile and internet banking. Predecessor to UPI.
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    <ol>
-                        <li>Initialize <b>K</b> centroids randomly.</li>
-                        <li>Assign each data point to the nearest centroid.</li>
-                        <li>Re-calculate centroids by taking the mean of all points in that cluster.</li>
-                        <li>Repeat until convergence (centroids stop moving).</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ML</span> 12. Applications of clustering in finance <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    <ul>
-                        <li><span class="highlight">Customer Segmentation:</span> Grouping users by spending habits.
-                        </li>
-                        <li><span class="highlight">Portfolio Diversification:</span> Finding stocks that are NOT in the
-                            same cluster to reduce risk.</li>
-                        <li><span class="highlight">Anomaly Detection:</span> Identifying transactions that don't fit
-                            into any cluster.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ML</span> 13. How to choose number of clusters <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Common methods include the <span class="highlight">Elbow Method</span> (plotting WCSS vs K) and the
-                    <span class="highlight">Silhouette Score</span> (measures how well-separated clusters are).
-                </div>
-            </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> The key differentiator — RTGS = Gross (one-by-one), NEFT = Net (batched). UPI runs on IMPS rails but adds the VPA abstraction layer.</div>
+            </div></div>
         </div>
 
-        <!-- MARKET SENTIMENT -->
-        <div class="section-title"><span>📉</span> Market Sentiment</div>
-        <div class="qa-container">
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">MARKET</span> 14. Explain Markov Regime Switching Model <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    A model that assumes the market has different "states" (e.g., Bull or Bear) and uses probabilities
-                    to predict when the market will <span class="highlight">switch</span> from one state to another.
-                </div>
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 4. Security Issues in Digital Payments</div>
+                <i class="acc-toggle">+</i>
             </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">MARKET</span> 15. What is Market Sentiment Analysis <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>Digital payments face a constant war between attackers and security engineers. Major threat vectors:</p>
+                <div class="content-grid" style="margin-top:0.9rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">🎣 Phishing</div>
+                        Attacker sends a fake bank URL via SMS/email. Victim enters credentials on a cloned page. Mitigation: 2FA, anti-phishing browser extensions.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">📱 SIM Swapping</div>
+                        Attacker convinces telecom operator to transfer victim's number to their SIM. All OTPs now go to attacker. Mitigation: SIM lock, operator alerts.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🕵️ MITM Attack</div>
+                        Attacker intercepts data between user and server on an unsecured network (e.g., public Wi-Fi). Mitigation: TLS/HTTPS encryption, VPN.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🦠 Malware/Keyloggers</div>
+                        Malicious software records keystrokes and captures passwords. Mitigation: Device-level security, biometric auth, app sandboxing.
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    Using NLP to analyze news, social media, and reports to gauge the <span
-                        class="highlight">mood</span> of the market (Optimistic vs. Pessimistic).
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">MATH</span> 16. Bayesian Reasoning in finance <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    A statistical method where you update the probability of a hypothesis (e.g., "The market will
-                    crash") as new evidence (e.g., "Inflation data") becomes available.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">MATH</span> 17. Prior vs Posterior probability <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    <b>Prior:</b> Belief before seeing data.<br>
-                    <b>Posterior:</b> Belief updated after seeing data.
-                </div>
-            </div>
+                <div class="warn-box"><strong>⚠️ Critical:</strong> Countermeasures are just as important as the threat. Always mention the fix — Multi-Factor Auth (MFA), Tokenization, End-to-End Encryption, and AI-based behavioral analysis.</div>
+            </div></div>
         </div>
 
-        <!-- TRADING ALGORITHMS -->
-        <div class="section-title"><span>🤖</span> Trading Algorithms (Super Important)</div>
-        <div class="qa-container">
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ALGO</span> 18. What is Algorithmic Trading <span class="star-badge">⭐</span>
-                    </div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    The use of computer programs to execute trades based on a defined set of instructions (price,
-                    timing, or volume) at speeds impossible for a human.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ALGO</span> 19. Advantages of Algorithmic Trading</div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Speed, accuracy, <span class="highlight">reduced emotion</span>, ability to backtest, and lower
-                    transaction costs due to efficient execution.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ALGO</span> 20. What is Backtesting <span class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Running a trading strategy against <span class="highlight">historical data</span> to see how it
-                    would have performed before live trading. It helps estimate risk, consistency, and robustness.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ALGO</span> 21. Steps to develop trading strategy <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    1. Strategy Identification. 2. Backtesting. 3. Risk Management. 4. Execution System Setup. 5.
-                    Optimization.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ALGO</span> 22. SMA-based trading strategy <span class="star-badge">⭐</span>
-                    </div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Uses <b>Simple Moving Averages</b>. A common strategy is the "Crossover": Buy when a short-term SMA
-                    (e.g., 50-day) crosses above a long-term SMA (e.g., 200-day).
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ALGO</span> 23. Intraday vs Daily trading strategy <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    <b>Intraday:</b> Closing all positions before the market closes (avoids overnight risk).<br>
-                    <b>Daily:</b> Holding positions over multiple days to catch larger trends.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">RISK</span> 24. Risk Management in trading <span class="star-badge">⭐</span>
-                    </div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    The process of protecting your capital. It involves <span class="highlight">position sizing</span>
-                    (how much to buy) and <span class="highlight">exit strategies</span>.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">RISK</span> 25. Stop Loss, Trailing Stop, Take Profit <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    <b>Stop Loss:</b> Auto-sell if price drops to X to limit loss.<br>
-                    <b>Trailing Stop:</b> A stop-loss that moves UP with the price (locks in profit).<br>
-                    <b>Take Profit:</b> Auto-sell once target profit is reached.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">ALGO</span> 26. Performance evaluation of trading algorithm <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Evaluated using <b>Sharpe Ratio</b>, <b>Maximum Drawdown</b> (biggest peak-to-trough drop), and
-                    <b>Win/Loss Ratio</b>.
-                </div>
-            </div>
-        </div>
-
-        <!-- FRAUD ANALYTICS -->
-        <div class="section-title"><span>🚨</span> Fraud Analytics (V. High Prob)</div>
-        <div class="qa-container">
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">FRAUD</span> 27. What is Fraud Detection using ML <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Using historical data to train models that can distinguish between legitimate and fraudulent
-                    transactions in milliseconds.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">FRAUD</span> 28. What is Anomaly Detection <span class="star-badge">⭐</span>
-                    </div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Finding patterns in data that do not conform to expected behavior (Outliers). E.g., A massive
-                    transaction in a foreign country after years of local small spends.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">FRAUD</span> 29. Supervised vs Unsupervised fraud detection <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    <b>Supervised:</b> Model learns from "Labeled" data (Known Fraud vs. Known Legitimate).<br>
-                    <b>Unsupervised:</b> Model finds "unusual" behavior without being told what fraud looks like
-                    (Clustering).
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">FRAUD</span> 30. Imbalanced Data problem <span class="star-badge">⭐</span>
-                    </div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    In banking, 99.9% of transactions are legitimate and only 0.1% are fraud. A model might just guess
-                    "Legitimate" every time and be 99.9% accurate but still <span class="highlight">fail</span> to catch
-                    any fraud.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">FRAUD</span> 31. ML algorithms used in fraud detection <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Random Forest, XGBoost, Isolation Forest, and Deep Learning (Autoencoders).
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">FRAUD</span> 32. Steps to build fraud detection system <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    1. Data Collection. 2. Feature Engineering. 3. Handling Imbalance (SMOTE). 4. Model Training. 5.
-                    Evaluation (Recall/Precision).
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">FRAUD</span> 33. Visualization of fraud patterns</div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    Network graphs (showing linked accounts), Heatmaps (location of fraud), and Time-series plots
-                    (spikes in activity).
-                </div>
-            </div>
-        </div>
-
-        <!-- VIVA KILLERS -->
-        <div class="section-title"><span>🧠</span> Mixed / Viva Killers</div>
-        <div class="qa-container">
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">VIVA</span> 34. What is Overfitting <span class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    When a model performs perfectly on training data but fails on new data because it memorized the
-                    <span class="highlight">noise</span> instead of the pattern.
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion-header">
-                    <div><span class="tag">VIVA</span> 35. Model evaluation (Accuracy, Precision, Recall) <span
-                            class="star-badge">⭐</span></div>
-                    <i>+</i>
-                </div>
-                <div class="accordion-content">
-                    <ul>
-                        <li><b>Accuracy:</b> Total correct / Total. (Useless for fraud).</li>
-                        <li><b>Precision:</b> Of all predicted frauds, how many were real?</li>
-                        <li><b>Recall:</b> Of all real frauds, how many did we catch? <span class="highlight">(Most
-                                important for banking!)</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <br><br>
     </div>
 
-    <script>
-        const accordions = document.querySelectorAll('.accordion');
+    <!-- FINANCIAL STATISTICS -->
+    <div class="section-header">
+        <span class="section-icon">📊</span> Financial Statistics
+        <span class="section-count">5 Questions</span>
+    </div>
+    <div class="qa-stack">
 
-        accordions.forEach((acc, index) => {
-            acc.style.animationDelay = `${index * 0.05}s`;
-            const header = acc.querySelector('.accordion-header');
-            header.addEventListener('click', () => {
-                acc.classList.toggle('active');
-            });
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 5. Explain Sharpe Ratio (Formula + Use)</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>The Sharpe Ratio tells you <span class="highlight">how much return you earn per unit of risk taken</span>. It was developed by Nobel laureate William F. Sharpe.</p>
+                <div class="formula">Sharpe Ratio = (Rp − Rf) / σp</div>
+                <div class="content-grid">
+                    <div class="content-box">
+                        <div class="content-box-label">Components</div>
+                        <ul>
+                            <li><span class="highlight">Rp</span> = Portfolio's actual return</li>
+                            <li><span class="highlight">Rf</span> = Risk-free rate (e.g., RBI repo rate ~6.5%)</li>
+                            <li><span class="highlight">σp</span> = Standard Deviation of portfolio returns</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Interpreting the Value</div>
+                        <ul>
+                            <li><span class="hl-red">< 1</span> → Not worth the risk</li>
+                            <li><span class="highlight">1–2</span> → Good risk-adjusted return</li>
+                            <li><span class="hl-green">> 2</span> → Excellent — strong performance</li>
+                            <li><span class="hl-green">> 3</span> → Outstanding / potentially over-fit</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> If Portfolio A returns 15% and Portfolio B returns 18% — B sounds better, but if B has 3× the volatility, its Sharpe Ratio will be lower, making A the smarter choice.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 6. Importance of Sharpe Ratio in Portfolio Analysis</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>Raw returns are <span class="hl-red">misleading</span>. Two portfolios with the same return can have drastically different risk profiles. The Sharpe Ratio is the standard benchmark for comparison because it answers: <em>"Did you earn this return by taking smart decisions or by simply gambling?"</em></p>
+                <ul style="margin-top:0.8rem;">
+                    <li><strong>Comparing Funds:</strong> Used by mutual fund analysts to rank portfolios objectively, regardless of market conditions.</li>
+                    <li><strong>Strategy Validation:</strong> In algo-trading, a strategy is only worth deploying live if its backtested Sharpe Ratio is above 1.0.</li>
+                    <li><strong>Portfolio Construction:</strong> Adding an asset to a portfolio is justified only if it increases the overall Sharpe Ratio.</li>
+                </ul>
+                <div class="warn-box"><strong>⚠️ Limitation to mention:</strong> Sharpe Ratio assumes returns are normally distributed. In reality, markets have fat tails (Black Swan events), which it doesn't capture well. The <span class="highlight">Sortino Ratio</span> (penalizes only downside deviation) is a better alternative in such cases.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-finance">Stats</span> 7. Mean, Variance &amp; Standard Deviation in Finance</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>These three are the statistical backbone of all risk analysis in finance.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Mean (Expected Return)</div>
+                        The average of historical returns. Tells you what return to <em>expect</em> on average.
+                        <div class="formula" style="font-size:0.8rem; margin:0.5rem 0 0;">μ = Σ(Ri) / N</div>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Variance (σ²)</div>
+                        Average squared deviation from the mean. Quantifies how <em>spread out</em> returns are. A higher variance = more unpredictable investment.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Standard Deviation (σ)</div>
+                        Square root of Variance. Expressed in the <em>same unit as returns</em> (%). This is the primary measure of <span class="highlight">Volatility (Risk)</span> used by every trader and fund manager.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Finance Application</div>
+                        A stock with Mean return = 12% and σ = 3% is <span class="hl-green">more stable</span> than one with 12% mean and σ = 25%. Same expected return, drastically different risk.
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 8. Correlation vs Covariance</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>Both measure the <span class="highlight">relationship between two assets</span>, but they answer different questions.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Covariance</div>
+                        Tells the <span class="highlight">direction</span> of the relationship.
+                        <ul style="margin-top:0.4rem;">
+                            <li><span class="hl-green">Positive</span>: Both move together</li>
+                            <li><span class="hl-red">Negative</span>: They move opposite</li>
+                        </ul>
+                        Problem: Scale is unbounded. Hard to interpret magnitude.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Correlation (r)</div>
+                        Covariance <em>standardized</em> by dividing by (σA × σB). Always between <span class="highlight">-1 and +1</span>.
+                        <ul style="margin-top:0.4rem;">
+                            <li><span class="hl-green">+1</span>: Perfect positive sync</li>
+                            <li><span class="hl-red">-1</span>: Perfect hedge</li>
+                            <li>0: No relationship</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="formula">Correlation (r) = Cov(A,B) / (σA × σB)</div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> For portfolio diversification, you want assets with <span class="hl-red">low or negative correlation</span>. Example: Gold and equities typically have negative correlation — gold rises when markets fall, acting as a hedge.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-finance">Stats</span> 9. Skewness and Kurtosis</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>Standard deviation tells you the average risk. Skewness and Kurtosis tell you about the <span class="highlight">shape of the risk distribution</span> — where the danger actually hides.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Skewness (Asymmetry)</div>
+                        <ul>
+                            <li><span class="hl-green">Positive Skew</span>: Tail on the right → Rare large gains. Investors prefer this.</li>
+                            <li><span class="hl-red">Negative Skew</span>: Tail on the left → Rare large losses. Most stocks are negatively skewed.</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Kurtosis (Tail Risk)</div>
+                        <ul>
+                            <li><span class="highlight">Leptokurtic</span> (High Kurtosis > 3): Fat tails → High probability of extreme events (Black Swans).</li>
+                            <li><span class="hl-green">Platykurtic</span> (Low < 3): Thin tails → Fewer extreme outcomes.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="warn-box"><strong>⚠️ Why it matters:</strong> The 2008 Financial Crisis was a <em>Black Swan</em> — models assumed normal distribution (Kurtosis = 3) but actual market data had Kurtosis of 5–8. Models underestimated tail risk catastrophically.</div>
+            </div></div>
+        </div>
+
+    </div>
+
+    <!-- CLUSTERING -->
+    <div class="section-header">
+        <span class="section-icon">🧩</span> Clustering <span style="color:var(--accent-3); font-size:0.85rem;">(VERY IMPORTANT)</span>
+        <span class="section-count">4 Questions</span>
+    </div>
+    <div class="qa-stack">
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 10. Explain K-Means Algorithm</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">K-Means</span> is an <span class="hl-purple">Unsupervised Learning</span> algorithm that partitions a dataset into <em>K</em> distinct, non-overlapping clusters, where each data point belongs to the cluster with the nearest <span class="highlight">Centroid</span> (cluster center).</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Core Concept</div>
+                        "Unsupervised" means <strong>no labels provided</strong>. The algorithm discovers natural groupings purely from data features. Uses <span class="highlight">Euclidean Distance</span> to measure proximity to centroids.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Objective Function</div>
+                        Minimizes <strong>WCSS</strong> (Within-Cluster Sum of Squares):
+                        <div class="formula" style="font-size:0.8rem; margin-top:0.5rem;">WCSS = Σ ||xi − μk||²</div>
+                        Lower WCSS = tighter, more meaningful clusters.
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> K-Means assumes clusters are <em>spherical and equal-sized</em>. If asked about limitations — say it fails on non-convex shapes (use DBSCAN instead) and is sensitive to outliers.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 11. Steps of K-Means Clustering</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <ol class="steps-list">
+                    <li><strong>Choose K</strong> — Decide number of clusters (using Elbow Method or domain knowledge).</li>
+                    <li><strong>Initialize Centroids</strong> — Randomly place K centroids in the data space. (K-Means++ improves this step by spacing them out smarter.)</li>
+                    <li><strong>Assignment Step</strong> — Assign every data point to its nearest centroid using Euclidean distance.</li>
+                    <li><strong>Update Step</strong> — Recalculate each centroid as the <span class="highlight">mean of all points</span> assigned to it.</li>
+                    <li><strong>Convergence Check</strong> — Repeat Steps 3 & 4 until centroids no longer move significantly (or max iterations reached).</li>
+                </ol>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> Time complexity is O(n × K × I × d) where n=points, K=clusters, I=iterations, d=dimensions. It's efficient for large datasets but non-deterministic (random init). Run multiple times and pick lowest WCSS.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 12. Applications of Clustering in Finance</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <div class="content-grid" style="margin-top:0.3rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">👥 Customer Segmentation</div>
+                        Banks cluster customers by transaction frequency, spend patterns, and channel usage. Cluster A = HNI investors, Cluster B = Salary class, etc. Enables <strong>targeted product offerings</strong> and personalized credit limits.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">📈 Portfolio Diversification</div>
+                        Stocks within the same cluster have high correlation. A smart investor picks one stock from <em>each</em> cluster, ensuring the portfolio isn't vulnerable to a single sector shock.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🚨 Fraud Detection</div>
+                        Fraudulent transactions are <strong>outliers</strong> — they don't fit cleanly into any cluster. Points far from all centroids get flagged automatically for review.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🏦 Credit Risk Grouping</div>
+                        Cluster borrowers by income, debt-to-income ratio, and credit history. Enables <strong>risk-tiered interest rates</strong> rather than one-size-fits-all pricing.
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 13. How to Choose Number of Clusters (K)</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>Choosing K is the most critical decision in K-Means. Two standard methods:</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">📐 Elbow Method</div>
+                        Plot WCSS vs K values (1 to 10). WCSS always decreases as K increases. The <span class="highlight">"elbow"</span> — the point where the rate of decrease sharply slows — is the optimal K. Beyond this, adding clusters gives diminishing returns.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">📏 Silhouette Score</div>
+                        Measures how <em>similar</em> a point is to its own cluster vs. the nearest rival cluster.
+                        <div class="formula" style="font-size:0.78rem; margin-top:0.5rem;">s(i) = (b − a) / max(a, b)</div>
+                        Range: -1 to +1. Score near <span class="hl-green">+1</span> = well-matched. Score near <span class="hl-red">−1</span> = misclassified.
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> In practice, use both methods together. Elbow for speed, Silhouette for validation. Also mention the <span class="highlight">Gap Statistic</span> as an advanced method — it compares WCSS to a random reference dataset.</div>
+            </div></div>
+        </div>
+
+    </div>
+
+    <!-- MARKET SENTIMENT -->
+    <div class="section-header">
+        <span class="section-icon">📉</span> Market Sentiment
+        <span class="section-count">4 Questions</span>
+    </div>
+    <div class="qa-stack">
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 14. Explain Markov Regime Switching Model</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>The <span class="highlight">Markov Regime Switching Model</span> (Hamilton, 1989) is a time-series model that recognizes markets don't behave the same way all the time. Instead, they switch between distinct <span class="highlight">regimes</span> (states), each with its own statistical properties.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Regimes (States)</div>
+                        <ul>
+                            <li><span class="hl-green">Bull Market</span>: High returns, low volatility</li>
+                            <li><span class="hl-red">Bear Market</span>: Negative returns, high volatility</li>
+                            <li><span class="highlight">Sideways/Transition</span>: Low returns, moderate vol</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Markov Property</div>
+                        The next state depends <strong>only on the current state</strong>, not on history (memoryless). Transition probabilities form a matrix — e.g., P(Bull→Bear) = 0.15 means 15% chance the bull regime ends next period.
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> Real application — fund managers use this to dynamically adjust equity exposure. If the model detects a Bear regime, they shift capital to bonds or gold without waiting for confirmation from traditional indicators.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 15. What is Market Sentiment Analysis</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">Market Sentiment Analysis</span> is the process of quantifying the collective mood of market participants — whether they are <span class="hl-green">Bullish</span> (optimistic) or <span class="hl-red">Bearish</span> (pessimistic) — by analyzing unstructured text data using NLP.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Data Sources</div>
+                        <ul>
+                            <li>Financial news (Reuters, Bloomberg)</li>
+                            <li>Twitter/X — analyst tweets, trending tickers</li>
+                            <li>Earnings call transcripts</li>
+                            <li>Reddit (r/wallstreetbets)</li>
+                            <li>RBI & SEBI policy statements</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">NLP Pipeline</div>
+                        <ol style="padding-left:1rem; margin:0;">
+                            <li>Text preprocessing (tokenize, remove stopwords)</li>
+                            <li>Sentiment scoring (VADER, FinBERT, NLTK)</li>
+                            <li>Aggregate score → Bullish/Neutral/Bearish label</li>
+                            <li>Feed score into trading signal</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> Mention <span class="highlight">FinBERT</span> — a BERT model fine-tuned on financial text. Far more accurate than generic sentiment tools because it understands phrases like "better than expected" (positive) vs "in line with expectations" (neutral).</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 16. Bayesian Reasoning in Finance</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">Bayesian Reasoning</span> is a framework for updating your belief about an event as new evidence arrives. In finance, it answers: <em>"Given what I know, and this new information — how likely is this outcome now?"</em></p>
+                <div class="formula">P(A|B) = [P(B|A) × P(A)] / P(B)</div>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Finance Example</div>
+                        <ul>
+                            <li><strong>Event A</strong>: Stock will rise next quarter</li>
+                            <li><strong>Prior</strong>: 60% probability (based on past seasonality)</li>
+                            <li><strong>New Evidence</strong>: Surprise earnings beat by 20%</li>
+                            <li><strong>Posterior</strong>: Updated probability → 82%</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Applications</div>
+                        <ul>
+                            <li>Bayesian Portfolio Optimization</li>
+                            <li>Credit default probability modeling</li>
+                            <li>Dynamic risk assessment</li>
+                            <li>Macro event impact quantification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 17. Prior vs Posterior Probability</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <div class="content-grid">
+                    <div class="content-box">
+                        <div class="content-box-label">Prior Probability P(A)</div>
+                        Your <strong>initial belief</strong> before observing new evidence. Based on historical data, expert knowledge, or base rates.<br><br>
+                        Example: <em>"Based on the last 10 years, this company misses earnings 30% of the time."</em> → Prior = 30% miss rate.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Posterior Probability P(A|B)</div>
+                        Your <strong>updated belief</strong> after incorporating new evidence (B).<br><br>
+                        Example: <em>"But today's trading volume is 3× normal, suggesting smart money is buying."</em> → Posterior miss rate drops to, say, 12%.
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> The key insight — Bayesian methods are dynamic, not static. Unlike traditional statistics (which give one answer), Bayesian models continuously update as data flows in. This is perfect for real-time financial environments.</div>
+            </div></div>
+        </div>
+
+    </div>
+
+    <!-- TRADING ALGORITHMS -->
+    <div class="section-header">
+        <span class="section-icon">🤖</span> Trading Algorithms <span style="color:var(--accent-3); font-size:0.85rem;">(SUPER IMPORTANT 🔥)</span>
+        <span class="section-count">9 Questions</span>
+    </div>
+    <div class="qa-stack">
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 18. What is Algorithmic Trading</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">Algorithmic Trading</span> (Algo-Trading) is the use of computer programs to automatically execute buy/sell orders in financial markets based on <span class="highlight">pre-defined rules</span> — with no human intervention at execution time.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">What the Algorithm Can Monitor</div>
+                        <ul>
+                            <li>Price movements & technical indicators</li>
+                            <li>Order book depth & volume</li>
+                            <li>News sentiment & macroeconomic events</li>
+                            <li>Cross-market arbitrage opportunities</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Scale & Speed</div>
+                        Human traders react in ~300ms. Algo-trading executes in <span class="highlight">microseconds</span>. HFT (High-Frequency Trading) firms execute <strong>millions of orders per second</strong>. Over 70% of US market volume is algorithmic.
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-finance">Algo</span> 19. Advantages of Algorithmic Trading</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <div class="content-grid">
+                    <div class="content-box">
+                        <div class="content-box-label">⚡ Speed</div>
+                        Executes orders in microseconds. Captures price discrepancies before they vanish. Critical for arbitrage strategies.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🎯 Accuracy</div>
+                        Zero manual entry errors. Orders placed at exact price, quantity, and timing as programmed. No typos, no fat-finger trades.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🧘 Emotionless Trading</div>
+                        Eliminates Fear & Greed — the two biggest enemies of a trader. No panic selling during crashes. No FOMO-buying at peaks. Rules are rules.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🌐 Multi-Market Scanning</div>
+                        One algorithm can simultaneously scan NSE, BSE, commodity markets, and forex — catching opportunities a human analyst would miss.
+                    </div>
+                </div>
+                <div class="warn-box"><strong>⚠️ Limitations to mention:</strong> Over-optimization (curve-fitting to historical data), flash crashes caused by algorithms amplifying sell orders, and regulatory risks (SEBI requires algos to be registered and audited).</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 20. What is Backtesting</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">Backtesting</span> is the process of simulating a trading strategy on <span class="highlight">historical market data</span> to evaluate how it would have performed — before deploying real capital.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Why It's Essential</div>
+                        <ul>
+                            <li>Validates the core strategy logic</li>
+                            <li>Identifies weaknesses before losses occur</li>
+                            <li>Generates performance metrics (Sharpe, Drawdown)</li>
+                            <li>Allows parameter tuning without real risk</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Key Metrics from Backtest</div>
+                        <ul>
+                            <li><span class="highlight">Total Return</span> over the test period</li>
+                            <li><span class="highlight">Sharpe Ratio</span> — risk-adjusted return</li>
+                            <li><span class="highlight">Max Drawdown</span> — worst peak-to-trough loss</li>
+                            <li><span class="highlight">Win Rate</span> — % of profitable trades</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="warn-box"><strong>⚠️ Critical Warning — Lookahead Bias:</strong> Using data that wouldn't have been available at decision time (e.g., closing price to make an intraday decision). This is the #1 mistake in backtesting and makes results unrealistically optimistic.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 21. Steps to Develop a Trading Strategy</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <ol class="steps-list">
+                    <li><strong>Strategy Identification:</strong> Define the hypothesis. E.g., "Stocks that beat earnings by >10% tend to rise 5% over the next 5 days."</li>
+                    <li><strong>Data Collection:</strong> Historical OHLCV (Open, High, Low, Close, Volume) data. Source from NSE API, Yahoo Finance, or Bloomberg.</li>
+                    <li><strong>Feature Engineering:</strong> Calculate indicators — SMA, RSI, MACD, Bollinger Bands — that will drive the signal.</li>
+                    <li><strong>Code the Logic:</strong> Translate rules into Python (using Pandas, NumPy, or frameworks like Backtrader/Zipline).</li>
+                    <li><strong>Backtesting:</strong> Simulate on out-of-sample data. Avoid lookahead bias. Calculate performance metrics.</li>
+                    <li><strong>Risk Management:</strong> Set Stop Loss, Position Sizing rules (e.g., max 2% of capital per trade), and max daily drawdown limits.</li>
+                    <li><strong>Paper Trading:</strong> Run live in simulation mode before committing real capital. Typically 1–3 months.</li>
+                    <li><strong>Live Deployment:</strong> Connect to broker API (Zerodha Kite, Upstox) and deploy with continuous monitoring.</li>
+                </ol>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 22. SMA-Based Trading Strategy</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>The <span class="highlight">Simple Moving Average (SMA)</span> strategy is a trend-following approach. SMA smooths out price noise to reveal the underlying trend direction.</p>
+                <div class="formula">SMA(n) = (P₁ + P₂ + ... + Pₙ) / n</div>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">📈 Golden Cross — BUY Signal</div>
+                        Short-term SMA (e.g., 50-day) crosses <strong>above</strong> the Long-term SMA (e.g., 200-day). Signals bullish momentum building. Historical win rate ~65–70%.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">📉 Death Cross — SELL Signal</div>
+                        Short-term SMA crosses <strong>below</strong> the Long-term SMA. Signals bearish trend starting. Famous example: Death Cross appeared before the 2008 crash.
+                    </div>
+                </div>
+                <div class="warn-box"><strong>⚠️ Limitation:</strong> SMA is a <span class="highlight">lagging indicator</span> — it reacts to price, not predicts it. In a sideways/choppy market it generates many false signals (whipsaws). Combine with RSI or volume for confirmation.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 23. Intraday vs Daily Trading Strategy</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <div class="content-grid">
+                    <div class="content-box">
+                        <div class="content-box-label">⚡ Intraday Trading</div>
+                        <ul>
+                            <li>All positions opened <strong>and closed</strong> within the same trading day</li>
+                            <li>Zero overnight risk (no gap-up/gap-down exposure)</li>
+                            <li>Uses 1-minute to 15-minute candles</li>
+                            <li>Requires high leverage, tight spreads</li>
+                            <li>Indicators: VWAP, RSI, Intraday MACD</li>
+                            <li>High transaction cost due to volume of trades</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">📅 Daily / Swing Trading</div>
+                        <ul>
+                            <li>Positions held for <strong>days to weeks</strong></li>
+                            <li>Captures medium-term price trends</li>
+                            <li>Uses daily or weekly candles</li>
+                            <li>Exposed to overnight/weekend gap risk</li>
+                            <li>Indicators: SMA crossover, MACD, Bollinger Bands</li>
+                            <li>Lower transaction cost, requires less monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> Intraday suits high-capital, low-latency setups. Daily is better for most retail investors since it requires less infrastructure and avoids noise. Many institutional algos combine both — intraday for entry, daily for trend direction.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 24. Risk Management in Trading</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">Risk Management</span> is the systematic process of identifying, quantifying, and limiting financial loss. It is the difference between a profitable strategy and a blown-up account.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Position Sizing</div>
+                        The <strong>2% Rule</strong>: Never risk more than 2% of total capital on a single trade. If your capital is ₹10L, max loss per trade = ₹20,000. This ensures 50 consecutive losses are needed to wipe the account.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Portfolio-Level Rules</div>
+                        <ul>
+                            <li><strong>Max Drawdown Limit:</strong> Stop trading if portfolio drops 10% from peak</li>
+                            <li><strong>Sector Exposure Cap:</strong> Max 30% in one sector</li>
+                            <li><strong>Correlation Limit:</strong> Avoid holding highly correlated positions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Key Formula — Kelly Criterion:</strong>
+                    <div class="formula" style="margin-top:0.5rem; color:var(--accent-4);">f* = (bp − q) / b</div>
+                    Where b = odds, p = win prob, q = loss prob. Gives optimal position size to maximize long-term growth.
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 25. Stop Loss, Trailing Stop &amp; Take Profit</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <div class="content-grid">
+                    <div class="content-box">
+                        <div class="content-box-label">🛑 Stop Loss (SL)</div>
+                        A <strong>pre-set exit point</strong> that triggers an automatic sell if price falls to that level. Caps maximum loss.<br><br>
+                        Example: Buy at ₹500, SL at ₹475 → Maximum loss = ₹25 (5%).
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🔄 Trailing Stop Loss</div>
+                        A <strong>dynamic stop loss</strong> that moves up automatically as price rises, but never moves down. Locks in profit while allowing upside.<br><br>
+                        Example: Buy ₹500, 5% trailing → SL starts at ₹475. If price rises to ₹600, SL auto-adjusts to ₹570.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🎯 Take Profit (TP)</div>
+                        Auto-closes position when target profit is reached. Removes the greed element from holding too long.<br><br>
+                        Example: Buy ₹500, TP at ₹560 → 12% gain, auto-exit.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Risk-Reward Ratio</div>
+                        Always aim for RR &gt; 1:2 (Risk ₹1 to gain ₹2). With 50% win rate and 1:2 RR, you are <span class="hl-green">profitable overall</span> even if you lose half your trades.
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 26. Performance Evaluation of Trading Algorithm</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>Never judge an algorithm by <em>raw returns alone</em>. Use a multi-metric framework:</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">📐 Sharpe Ratio</div>
+                        Risk-adjusted return benchmark. A backtested strategy needs Sharpe &gt; 1 for consideration. Live deployment target: &gt; 1.5.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">📉 Maximum Drawdown</div>
+                        Largest peak-to-trough loss. If a strategy returned 30% but had a 40% drawdown mid-way — most investors would have abandoned it before recovery.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">✅ Win Rate</div>
+                        % of trades that were profitable. Note: Win rate alone is meaningless without knowing average win vs average loss size. A 40% win rate can be very profitable with 1:3 RR.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">📊 Calmar Ratio</div>
+                        Annual Return / Max Drawdown. A Calmar &gt; 1 means your strategy earned more than the worst loss it ever suffered — a strong sign of robustness.
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+    </div>
+
+    <!-- FRAUD ANALYTICS -->
+    <div class="section-header">
+        <span class="section-icon">🚨</span> Fraud Analytics <span style="color:var(--accent-3); font-size:0.85rem;">(HIGH PROBABILITY)</span>
+        <span class="section-count">7 Questions</span>
+    </div>
+    <div class="qa-stack">
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 27. What is Fraud Detection Using ML</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">ML-based Fraud Detection</span> uses historical transaction data to train models that learn patterns distinguishing legitimate activity from fraudulent behavior — then apply these patterns in real-time at transaction execution.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Why ML Over Rules?</div>
+                        Traditional rule-based systems (e.g., "flag transactions &gt; ₹50,000") are static. Fraudsters adapt quickly. ML models learn <strong>behavioral patterns</strong> and detect novel fraud methods that rules would miss.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Real-Time Pipeline</div>
+                        Transaction occurs → Feature vector extracted → Model scores in &lt;50ms → If score &gt; threshold, block/flag → Human review queue for borderline cases.
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Viva Tip:</strong> The key challenge is the <em>speed requirement</em> — fraud detection can't add 5 seconds to a payment. Models must be lightweight and serve predictions in milliseconds. This is why XGBoost beats deep learning in production fraud systems.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 28. What is Anomaly Detection</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">Anomaly Detection</span> identifies data points that deviate significantly from established normal patterns — without needing labeled fraud examples.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Types of Anomalies</div>
+                        <ul>
+                            <li><strong>Point Anomaly:</strong> Single unusual transaction (₹10,000 from a ₹200/day account)</li>
+                            <li><strong>Contextual Anomaly:</strong> Transaction normal in isolation but unusual in context (overseas ATM withdrawal when card usually stays local)</li>
+                            <li><strong>Collective Anomaly:</strong> Series of individually normal transactions that together indicate fraud (structuring — multiple ₹9,999 deposits to avoid ₹10K reporting threshold)</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Key Algorithms</div>
+                        <ul>
+                            <li><span class="highlight">Isolation Forest</span>: Isolates anomalies by random partitioning. Anomalies are isolated faster.</li>
+                            <li><span class="highlight">Autoencoder (DL)</span>: Learns compressed representation of normal data. High reconstruction error = anomaly.</li>
+                            <li><span class="highlight">Z-Score / IQR</span>: Simple statistical methods for univariate anomalies.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 29. Supervised vs Unsupervised Fraud Detection</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <div class="content-grid">
+                    <div class="content-box">
+                        <div class="content-box-label">Supervised Learning</div>
+                        <ul>
+                            <li>Trained on <strong>labeled data</strong> — each transaction tagged as Fraud / Not Fraud</li>
+                            <li>Learns explicit fraud patterns</li>
+                            <li>Higher precision on known fraud types</li>
+                            <li>Algorithms: Logistic Regression, Random Forest, XGBoost</li>
+                            <li><span class="hl-red">Limitation:</span> Can't detect <em>new</em> fraud patterns it wasn't trained on (zero-day fraud)</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Unsupervised Learning</div>
+                        <ul>
+                            <li>No labels required — finds outliers automatically</li>
+                            <li>Detects <strong>novel fraud</strong> patterns (emerging schemes)</li>
+                            <li>Algorithms: Isolation Forest, K-Means, Autoencoders</li>
+                            <li><span class="hl-red">Limitation:</span> Higher false positive rate — legitimate unusual behavior can be flagged</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Best Practice:</strong> Production systems use a <span class="highlight">hybrid approach</span>. Supervised model handles known fraud fast. Unsupervised anomaly detector runs in parallel to catch emerging threats. Results combined for final risk score.</div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 30. Imbalanced Data Problem</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>In fraud datasets, <span class="hl-green">99.9%</span> of transactions are legitimate and only <span class="hl-red">0.1%</span> are fraud. A naive model that predicts "Not Fraud" for <em>everything</em> achieves 99.9% accuracy — but catches <strong>zero fraud</strong>. This is the imbalanced data trap.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Oversampling — SMOTE</div>
+                        <strong>Synthetic Minority Oversampling Technique</strong>: Creates synthetic fraud samples by interpolating between existing fraud cases. Makes the class distribution balanced without just duplicating data.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Undersampling</div>
+                        Reduces the majority (clean) class to match minority class size. Faster, but loses information. Use only when dataset is very large.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Class Weights</div>
+                        Tell the model to penalize misclassifying fraud 100× more than legitimate transactions. Supported natively in XGBoost (scale_pos_weight parameter).
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Correct Metric</div>
+                        <span class="hl-red">Never use Accuracy.</span> Use <span class="highlight">Precision-Recall AUC</span>, F1-Score, and <span class="highlight">Recall</span> (which matters most — catching all fraud).
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 31. ML Algorithms Used in Fraud Detection</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <div class="content-grid">
+                    <div class="content-box">
+                        <div class="content-box-label">🌲 Random Forest</div>
+                        Ensemble of decision trees. Robust to overfitting. Handles mixed feature types well. Provides feature importance scores to explain which transaction attributes are most suspicious.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">⚡ XGBoost</div>
+                        Gradient-boosted trees — industry standard for tabular fraud data. Extremely fast, handles missing values, and consistently wins Kaggle fraud competitions. Best for structured transaction data.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🏝️ Isolation Forest</div>
+                        Unsupervised anomaly detector. Isolates outliers (fraud) using random splitting — anomalies need fewer splits to isolate. No labels required.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🧠 Neural Networks</div>
+                        Autoencoders for unsupervised anomaly detection; Deep Neural Networks for complex behavioral patterns. Computationally heavier — used for batch analysis, not real-time scoring.
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 32. Steps to Build a Fraud Detection System</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <ol class="steps-list">
+                    <li><strong>Data Ingestion:</strong> Collect raw transaction data — timestamp, amount, merchant, location, device ID, user history.</li>
+                    <li><strong>Feature Engineering:</strong> Create behavioral features: "avg spend per hour", "# transactions in last 10 min", "distance from last transaction", "merchant category mismatch".</li>
+                    <li><strong>Handle Imbalance:</strong> Apply SMOTE to oversample the fraud class; set class weights in the model.</li>
+                    <li><strong>Model Training:</strong> Train XGBoost + Isolation Forest (hybrid). Use stratified cross-validation to prevent data leakage.</li>
+                    <li><strong>Threshold Tuning:</strong> Adjust classification threshold to balance Precision vs Recall based on business requirement (lower threshold = catch more fraud but more false alarms).</li>
+                    <li><strong>Model Explainability:</strong> Use SHAP values to explain why a transaction was flagged — essential for regulatory compliance (RBI requires explainable AI for financial decisions).</li>
+                    <li><strong>Real-Time Deployment:</strong> Serve model via REST API. Must return a fraud score in &lt;50ms per transaction.</li>
+                    <li><strong>Continuous Monitoring:</strong> Track model performance daily. Retrain when fraud patterns drift (concept drift).</li>
+                </ol>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-finance">Algo</span> 33. Visualization of Fraud Patterns</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>Visualization transforms raw fraud data into <span class="highlight">actionable intelligence</span> for analysts and investigators.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">🕸️ Network Graphs</div>
+                        Represent accounts as <strong>nodes</strong> and transactions as <strong>edges</strong>. Fraud rings become visible as tightly clustered communities. Tools: NetworkX (Python), Gephi. Useful for identifying money mule networks.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🗺️ Geographic Heatmaps</div>
+                        Map fraud density by location. Identify unusually high fraud rates in specific pin codes or states. Helps risk teams focus field investigation resources.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">📈 Time-Series Charts</div>
+                        Plot fraud rate over time. Identify seasonal fraud spikes (e.g., festival season, after new app releases). Useful for capacity planning.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">🌡️ Correlation Heatmaps</div>
+                        Show which features (amount, time, merchant type) correlate most with fraud. Guides feature selection for model improvement.
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+    </div>
+
+    <!-- VIVA KILLERS -->
+    <div class="section-header">
+        <span class="section-icon">🧠</span> Viva Killers — Mixed
+        <span class="section-count">2 Questions</span>
+    </div>
+    <div class="qa-stack">
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 34. What is Overfitting</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p><span class="highlight">Overfitting</span> occurs when a model learns the training data <em>too perfectly</em> — memorizing noise, outliers, and random fluctuations rather than the underlying generalizable pattern. It performs excellently on training data but fails on new, unseen data.</p>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Symptoms</div>
+                        <ul>
+                            <li>Train accuracy: 99% | Test accuracy: 62% → Classic overfit</li>
+                            <li>Backtested Sharpe Ratio: 3.5 → Live Sharpe: 0.4</li>
+                            <li>Model fails on slightly different data distributions</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Root Causes</div>
+                        <ul>
+                            <li>Too many features relative to data size</li>
+                            <li>Model too complex (deep tree, too many layers)</li>
+                            <li>Insufficient training data</li>
+                            <li>No regularization applied</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-grid">
+                    <div class="content-box">
+                        <div class="content-box-label">Fixes</div>
+                        <ul>
+                            <li><span class="highlight">Regularization</span>: L1 (Lasso) or L2 (Ridge) penalize model complexity</li>
+                            <li><span class="highlight">Cross-validation</span>: K-Fold validation for robust evaluation</li>
+                            <li><span class="highlight">Dropout</span>: Randomly deactivate neurons during training (Neural Networks)</li>
+                            <li><span class="highlight">Early Stopping</span>: Stop training when validation loss stops improving</li>
+                            <li><span class="highlight">More Data</span>: Most reliable fix — overfit models need more diverse examples</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">In Finance Specifically</div>
+                        In trading, overfitting is called <strong>Curve Fitting</strong>. A backtested strategy optimized on 5 years of historical data may have 200+ parameters tuned to those specific 5 years. When deployed live, it fails because the future doesn't repeat the past identically. Always test on a <strong>truly out-of-sample</strong> "walk-forward" period.
+                    </div>
+                </div>
+            </div></div>
+        </div>
+
+        <div class="accordion">
+            <div class="acc-header">
+                <div class="acc-header-left"><span class="badge badge-star">V.IMP</span> 35. Model Evaluation — Accuracy, Precision, Recall &amp; F1</div>
+                <i class="acc-toggle">+</i>
+            </div>
+            <div class="acc-content"><div class="acc-content-inner">
+                <p>These four metrics describe different aspects of model performance. Choosing the right one depends on the <span class="highlight">cost of each type of error</span> in your specific problem.</p>
+                <div class="formula">TP = Correctly caught fraud | FP = False alarm | FN = Missed fraud | TN = Correctly cleared</div>
+                <div class="content-grid" style="margin-top:0.8rem;">
+                    <div class="content-box">
+                        <div class="content-box-label">Accuracy</div>
+                        (TP + TN) / Total
+                        <div class="formula" style="font-size:0.8rem; margin:0.4rem 0;">(TP + TN) / (TP+TN+FP+FN)</div>
+                        <span class="hl-red">Useless for fraud</span> — a model predicting "not fraud" every time gets 99.9% accuracy.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Precision</div>
+                        <div class="formula" style="font-size:0.8rem; margin:0.4rem 0;">TP / (TP + FP)</div>
+                        "Of all transactions flagged as fraud, what % were actually fraud?" High precision → fewer false alarms → fewer angry customers wrongly blocked.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">Recall (Sensitivity)</div>
+                        <div class="formula" style="font-size:0.8rem; margin:0.4rem 0;">TP / (TP + FN)</div>
+                        "Of all actual frauds, what % did we catch?" <span class="highlight">Most critical for fraud</span> — a missed fraud causes real financial loss. Banks prioritize Recall.
+                    </div>
+                    <div class="content-box">
+                        <div class="content-box-label">F1 Score</div>
+                        <div class="formula" style="font-size:0.8rem; margin:0.4rem 0;">2 × (P × R) / (P + R)</div>
+                        Harmonic mean of Precision and Recall. Best single number to optimize when both matter. Imbalanced datasets → use <strong>F1 over Accuracy</strong>.
+                    </div>
+                </div>
+                <div class="tip-box"><strong>💡 Viva Killer Answer:</strong> There is a Precision-Recall tradeoff. Lowering the fraud threshold catches more fraud (↑Recall) but also flags more legitimate transactions (↓Precision). The optimal threshold is a business decision — how much customer friction are you willing to create to prevent fraud?</div>
+            </div></div>
+        </div>
+
+    </div>
+
+    <div class="no-results" id="noResults">
+        <p style="font-size:2rem;">🔍</p>
+        <p>No questions found for "<span id="searchTerm"></span>"</p>
+    </div>
+
+</div>
+
+<script>
+    // Accordion Logic
+    const accordions = document.querySelectorAll('.accordion');
+    accordions.forEach(acc => {
+        acc.querySelector('.acc-header').addEventListener('click', () => {
+            acc.classList.toggle('active');
+        });
+    });
+
+    // Search Logic
+    const searchInput = document.getElementById('searchInput');
+    const noResults = document.getElementById('noResults');
+
+    searchInput.addEventListener('input', (e) => {
+        const text = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        accordions.forEach(acc => {
+            const content = acc.textContent.toLowerCase();
+            if (!text || content.includes(text)) {
+                acc.style.display = "block";
+                if (text.length > 2) acc.classList.add('active');
+                visibleCount++;
+            } else {
+                acc.style.display = "none";
+                acc.classList.remove('active');
+            }
         });
 
-        // Search Logic
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            accordions.forEach(acc => {
-                const content = acc.textContent.toLowerCase();
-                if (content.includes(term)) {
-                    acc.style.display = 'block';
-                    if (term.length > 2) acc.classList.add('active');
-                    else acc.classList.remove('active');
-                } else {
-                    acc.style.display = 'none';
-                }
-            });
+        // Show/hide section headers
+        document.querySelectorAll('.section-header').forEach(header => {
+            if (!text) {
+                header.style.display = 'flex';
+                return;
+            }
+            let nextEl = header.nextElementSibling;
+            let hasVisible = false;
+            if (nextEl && nextEl.classList.contains('qa-stack')) {
+                const cards = nextEl.querySelectorAll('.accordion');
+                cards.forEach(c => { if (c.style.display !== 'none') hasVisible = true; });
+            }
+            header.style.display = hasVisible ? 'flex' : 'none';
         });
-    </script>
+
+        noResults.style.display = visibleCount === 0 && text ? 'block' : 'none';
+        document.getElementById('searchTerm').textContent = text;
+    });
+</script>
 
 </body>
-
 </html>
-
-
